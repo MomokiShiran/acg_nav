@@ -20,7 +20,6 @@
 <link rel="stylesheet" id="font-awesome-css" href="../assets/css/all.min.css?ver=2.0406" type="text/css" media="all">
 <link rel="stylesheet" id="font-awesome4-css" href="../assets/css/v4-shims.min.css?ver=2.0406" type="text/css" media="all">
 <link rel="stylesheet" id="bootstrap-css" href="../assets/css/bootstrap.min.css?ver=2.0406" type="text/css" media="all">
-<link rel="stylesheet" id="lightbox-css" href="../assets/css/jquery.fancybox.min.css?ver=2.0406" type="text/css" media="all">
 <link rel="stylesheet" id="style-css" href="../assets/css/style.css?ver=2.0406" type="text/css" media="all">
 <script type="text/javascript" src="../assets/js/jquery.min.js?ver=2.0406" id="jquery-js"></script>
 <link rel="canonical" href="sites/171.html">
@@ -227,18 +226,7 @@
                         						<ul class="navbar-nav site-menu mr-4">
                              
 						</ul>
-						<ul class="countOnline" id="online-count"> 正在加载在线人数...</ul>
-                        <script>
-                            var xhr = new XMLHttpRequest();
-                            xhr.onreadystatechange = function() {
-                                if (xhr.readyState === 4 && xhr.status === 200) {
-                                    var response = xhr.responseText;
-                                    document.getElementById("online-count").innerHTML = "在线人数：" + response + "人";
-                                }
-                            };
-                            xhr.open("GET", "https://www.zjgsuzjx.top/acg/wp-content/themes/webstackpro/server-side-script.php", true);
-                            xhr.send();
-                        </script>
+						
                     </div>
                     
                     <ul class="nav navbar-menu text-xs order-1 order-md-2">
@@ -603,7 +591,6 @@ var theme = {"ajaxurl": "https:\/\/www.zjgsuzjx.top\/acg\/wp-admin\/admin-ajax.p
 <script type="text/javascript" src="../assets/js/bootstrap.min.js?ver=2.0406" id="bootstrap-js"></script>
 <script type="text/javascript" src="../assets/js/theia-sticky-sidebar.js?ver=2.0406" id="sidebar-js"></script>
 <script type="text/javascript" src="../assets/js/lazyload.min.js?ver=2.0406" id="lazyload-js"></script>
-<script type="text/javascript" src="../assets/js/jquery.fancybox.min.js?ver=2.0406" id="lightbox-js-js"></script>
 <script type="text/javascript" src="../assets/js/app.js?ver=2.0406" id="appjs-js"></script>
 <script type="text/javascript">
     $(document).on('click','a.smooth-n',function(ev) {
@@ -637,10 +624,9 @@ var theme = {"ajaxurl": "https:\/\/www.zjgsuzjx.top\/acg\/wp-admin\/admin-ajax.p
 				let leftHeader=document.querySelectorAll("span.nav-icon>svg,span.nav-icon>i");let leftHeaderColorArr=["#FF69B4","#58c7ea","#E066FF","#FF69B4","#FFA54F","#90EE90"];leftHeader.forEach(tag=>{tagsColor=leftHeaderColorArr[Math.floor(Math.random()*leftHeaderColorArr.length)];tag.style.color=tagsColor});	
 				</script>				<script>
 let tags=document.querySelectorAll("#tag_cloud-2 a,.list-group-item .pull-right");let colorArr=["#428BCA","#AEDCAE","#ECA9A7","#DA99FF","#FFB380","#D9B999"];tags.forEach(tag=>{tagsColor=colorArr[Math.floor(Math.random()*colorArr.length)];tag.style.backgroundColor=tagsColor});
-				</script><script>				$("body").css("cursor", "url('https://myacg.pro/AliceStyle/static/mouse/dew/normal.cur'), default");
-				$("a").css("cursor", "url('https://myacg.pro/AliceStyle/static/mouse/dew/link.cur'), pointer");</script><script>console.log("n %c MyACG By Z| https://myacg.pro/","color:#fff;background: linear-gradient(to right , #7A88FF, #d27aff);padding:5px;border-radius: 10px;");</script>
+				</script>
 
-<script src="https://www.zjgsuzjx.top/wp-content/themes/kratos-pjax-master/static/js/cursorEffects.js"></script>
+
 <!-- end 自定义代码 -->
 </body>
 </html>
