@@ -9,7 +9,7 @@
         //粘性页脚
         stickFooter();
         // 网址块提示 
-        if(isPC()){ $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'}); }else{ $('.qr-img[data-toggle="tooltip"]').tooltip({trigger: 'hover'}); }
+        if(isPC()){ initTooltips(); }else{ initTooltips('.qr-img[data-bs-toggle="tooltip"]'); }
         // 初始化tab滑块
         intoSlider();
         // 初始化theiaStickySidebar
@@ -169,24 +169,20 @@
         }
         
         if($('body').hasClass('io-black-mode')){
-            if($(".switch-dark-mode").attr("data-original-title"))
-                $(".switch-dark-mode").attr("data-original-title","日间模式");
+            if($(".switch-dark-mode").attr("data-bs-original-title"))
+                $(".switch-dark-mode").attr("data-bs-original-title","日间模式");
             else
                 $(".switch-dark-mode").attr("title","日间模式");
             $(".mode-ico").removeClass("icon-night");
             $(".mode-ico").addClass("icon-light");
-            // $("#bg_canvas").css("width", "0%");
-            // $("#bg_canvas").css("height", "0%");
         }
         else{
-            if($(".switch-dark-mode").attr("data-original-title"))
-                $(".switch-dark-mode").attr("data-original-title","夜间模式");
+            if($(".switch-dark-mode").attr("data-bs-original-title"))
+                $(".switch-dark-mode").attr("data-bs-original-title","夜间模式");
             else
                 $(".switch-dark-mode").attr("title","夜间模式");
             $(".mode-ico").removeClass("icon-light");
             $(".mode-ico").addClass("icon-night");
-            // $("#bg_canvas").css("width", "100%");
-            // $("#bg_canvas").css("height", "100%");
         }
     }
     //返回顶部
@@ -198,9 +194,7 @@
         }
     });
     $('.go-up').click(function () {
-        $('body,html').animate({
-            scrollTop: 0
-        }, 500);
+        window.scrollTo({top: 0, behavior: 'smooth'});
     return false;
     }); 
 
@@ -398,7 +392,7 @@
                         t.parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').show().attr('href', url);
                     else
                         t.parents('.d-flex.flex-fill.flex-tab').children('.btn-move.tab-move').hide();
-                    if(isPC()) $('.ajax-url [data-toggle="tooltip"]').tooltip({ trigger: 'hover' });
+                    if(isPC()) initTooltips('.ajax-url [data-bs-toggle="tooltip"]');
                 } else { 
                     $('.ajax-loading').remove();
                 }
@@ -478,7 +472,7 @@
         }
         if(isEdit)
             newSite.children('.remove-site').show();
-        if(isPC()) $('.new-site[data-toggle="tooltip"]').tooltip({ trigger: 'hover' });
+        if(isPC()) initTooltips('.new-site[data-bs-toggle="tooltip"]');
     }
     function getItem(key = "myLinks") {
         var a = window.localStorage.getItem(key);
@@ -861,3 +855,12 @@ function scrollBar() {
     }
 }
 scrollBar();
+
+// Bootstrap 5 Tooltip 初始化函数
+function initTooltips(selector) {
+    selector = selector || '[data-bs-toggle="tooltip"]';
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll(selector));
+    tooltipTriggerList.forEach(function(tooltipTriggerEl) {
+        new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover' });
+    });
+}

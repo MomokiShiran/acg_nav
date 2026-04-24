@@ -13,10 +13,10 @@
 <meta property="og:url" content="https://myacg.pro"/> 
 <meta property="og:title" content="没有你要找的内容 | MyACG">
 <meta property="og:description" content="">
-<meta property="og:image" content="https://img.zjgsuzjx.top/img/images/2021/05/31/a7da6f8d4a1ff0c8a8a87094d198d368.th.jpg">
+<meta property="og:image" content="./assets/images/favicon.png">
 <meta property="og:site_name" content="MyACG">
-<link rel="shortcut icon" href="https://img.zjgsuzjx.top/img/images/2021/05/31/a7da6f8d4a1ff0c8a8a87094d198d368.th.jpg">
-<link rel="apple-touch-icon" href="https://img.zjgsuzjx.top/img/images/2021/05/31/a7da6f8d4a1ff0c8a8a87094d198d368.th.jpg">
+<link rel="shortcut icon" href="./assets/images/favicon.png">
+<link rel="apple-touch-icon" href="./assets/images/favicon.png">
 <link rel='dns-prefetch' href='//s.w.org' />
 		<style type="text/css">
 img.wp-smiley,
@@ -32,12 +32,11 @@ img.emoji {
 	padding: 0 !important;
 }
 </style>
-	<link rel='stylesheet' id='iconfont-css'  href='assets/css/iconfont.css?ver=2.0406' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome-css'  href='assets/css/all.min.css?ver=2.0406' type='text/css' media='all' />
-<link rel='stylesheet' id='font-awesome4-css'  href='assets/css/v4-shims.min.css?ver=2.0406' type='text/css' media='all' />
-<link rel='stylesheet' id='bootstrap-css'  href='assets/css/bootstrap.min.css?ver=2.0406' type='text/css' media='all' />
-<link rel='stylesheet' id='lightbox-css'  href='assets/css/jquery.fancybox.min.css?ver=2.0406' type='text/css' media='all' />
-<link rel='stylesheet' id='style-css'  href='assets/css/style.css?ver=2.0406' type='text/css' media='all' />
+	<link rel='stylesheet' id='iconfont-css'  href='assets/css/iconfont.css?ver=2.0406' type='text/css' d-flex='all' />
+<link rel='stylesheet' id='font-awesome-css'  href='assets/css/all.min.css?ver=2.0406' type='text/css' d-flex='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='assets/css/bootstrap.min.css?ver=2.0406' type='text/css' d-flex='all' />
+<link rel='stylesheet' id='lightbox-css'  href='assets/css/jquery.fancybox.min.css?ver=2.0406' type='text/css' d-flex='all' />
+<link rel='stylesheet' id='style-css'  href='assets/css/style.css?ver=2.0406' type='text/css' d-flex='all' />
 <script type='text/javascript' src='assets/js/jquery.min.js?ver=2.0406' id='jquery-js'></script>
 </head> 
 <body class="io-grey-mode">
@@ -71,13 +70,13 @@ img.emoji {
                     <a href="javascript:" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top">
                         <i class="iconfont icon-to-up"></i>
                     </a>
-                                                            <a href="javascript:" id="switch-mode" class="btn rounded-circle switch-dark-mode m-1" data-toggle="tooltip" data-placement="left" title="夜间模式">
+                                                            <a href="javascript:" id="switch-mode" class="btn rounded-circle switch-dark-mode m-1" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式">
                         <i class="mode-ico iconfont icon-light"></i>
                     </a>
                 </div>
                 <div class="footer-inner">
                     <div class="footer-text">
-                                                Copyright © 2023 MyACG                         &nbsp;&nbsp;Design by <a href="https://myacg.pro" target="_blank"><strong>ZJX</strong></a>&nbsp;&nbsp;|&nbsp;<a href="https://myacg.pro/donate/" target="_blank"><strong>Donate</strong></a>                                            </div>
+                                                Copyright © 2023 MyACG                         &nbsp;&nbsp;Design by <a href="https://myacg.pro" target="_blank" rel="noopener noreferrer"><strong>ZJX</strong></a>&nbsp;&nbsp;|&nbsp;<a href="https://myacg.pro/donate/" target="_blank" rel="noopener noreferrer"><strong>Donate</strong></a>                                            </div>
                 </div>
             </footer>
         </div><!-- main-content end -->
@@ -87,7 +86,7 @@ img.emoji {
 var theme = {"ajaxurl":"https:\/\/www.zjgsuzjx.top\/acg\/wp-admin\/admin-ajax.php","addico":"https:\/\/www.zjgsuzjx.top\/acg\/wp-content\/themes\/webstackpro\/images\/add.png","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"1","icourl":"https:\/\/api.iowen.cn\/favicon\/","icopng":".png","urlformat":"1","customizemax":"10","newWindow":"1","lazyload":"1","minNav":"","loading":"0"};
 /* ]]> */
 </script>
-<script type='text/javascript' src='assets/js/popper.min.js?ver=2.0406' id='popper-js'></script>
+
 <script type='text/javascript' src='assets/js/bootstrap.min.js?ver=2.0406' id='bootstrap-js'></script>
 <script type='text/javascript' src='assets/js/theia-sticky-sidebar.js?ver=2.0406' id='sidebar-js'></script>
 <script type='text/javascript' src='assets/js/lazyload.min.js?ver=2.0406' id='lazyload-js'></script>
@@ -96,12 +95,12 @@ var theme = {"ajaxurl":"https:\/\/www.zjgsuzjx.top\/acg\/wp-admin\/admin-ajax.ph
 <script type="text/javascript">
     $(document).on('click','a.smooth-n',function(ev) {
         ev.preventDefault();
-        $("html, body").animate({
-            scrollTop: $($(this).attr("href")).offset().top - 90
-        }, {
-            duration: 500,
-            easing: "swing"
-        });
+        var href = $(this).attr("href");
+        var target = document.querySelector(href);
+        if(target) {
+            var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
+            window.scrollTo({top: offset, behavior: 'smooth'});
+        }
     });
     </script>
 <!-- 自定义代码 -->
