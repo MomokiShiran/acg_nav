@@ -53,6 +53,11 @@
             $("body").prepend(load);
             load.animate({opacity:'1'},200,'swing').delay(3000).hide(300,function(){ load.remove() });
         }
+        
+        // 关闭移动端导航栏模态框
+        if ($('#sidebar').hasClass('show')) {
+            $('#sidebar').modal('hide');
+        }
     });
 	// 点赞
 	$(".btn-like").click(function() {
