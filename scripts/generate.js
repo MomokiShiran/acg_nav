@@ -1,0 +1,489 @@
+const fs = require('fs');
+const path = require('path');
+
+const DATA_FILE = path.join(__dirname, '../data/sites.json');
+const OUTPUT_DIR = path.join(__dirname, '../sites');
+const TRASH_DIR = path.join(__dirname, '../sitetrash');
+const TEMPLATE_DIR = path.join(__dirname, '../templates');
+
+const data = JSON.parse(fs.readFileSync(DATA_FILE, 'utf8'));
+
+function getCategoryName(categoryId) {
+    const cat = data.categories.find(c => c.id === categoryId);
+    return cat ? cat.name : categoryId;
+}
+
+function generateSiteCard(site, isRelated = false) {
+    const faviconUrl = `https://favicon.im/${new URL(site.url).hostname}`;
+    const newBadge = site.isNew ? '<span class="badge badge-danger text-ss me-1" title="新">New</span>' : '';
+
+    if (isRelated) {
+        return `
+            <div class="url-card col-6 col-sm-6 col-md-4 ">
+                <div class="url-body default">
+                    <a href="sites/${site.id}.html" target="_blank" data-id="${site.id}" data-url="${site.url}" class="card no-c mb-4 site-${site.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${site.description}" rel="noopener noreferrer">
+                        <div class="card-body">
+                            <div class="url-content d-flex align-items-center">
+                                <div class="url-img rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                    <img class="lazy" src="assets/images/favicon.png" data-src="${faviconUrl}" onerror="this.src='assets/images/favicon.png'">
+                                </div>
+                                <div class="url-info flex-fill">
+                                    <div class="text-sm overflowClip_1">
+                                        <strong>${site.name}</strong>
+                                    </div>
+                                    <p class="overflowClip_1 m-0 text-muted text-xs">${site.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="${site.url}" class="togo text-center text-muted is-views" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="直达"><i class="iconfont icon-goto"></i></a>
+                </div>
+            </div>`;
+    }
+
+    return `
+            <div class="url-card col-6 col-sm-6 col-md-4 col-xl-5a col-xxl-6a col-xxl-10a">
+                <div class="url-body default">
+                    <a href="sites/${site.id}.html" target="_blank" data-id="${site.id}" data-url="${site.url}" class="card no-c mb-4 site-${site.id}" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${site.description}" rel="noopener noreferrer">
+                        <div class="card-body">
+                            <div class="url-content d-flex align-items-center">
+                                <div class="url-img rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                    <img class="lazy" src="assets/images/favicon.png" data-src="${faviconUrl}" onerror="this.src='assets/images/favicon.png'">
+                                </div>
+                                <div class="url-info flex-fill">
+                                    <div class="text-sm overflowClip_1">
+                                        ${newBadge}<strong>${site.name}</strong>
+                                    </div>
+                                    <p class="overflowClip_1 m-0 text-muted text-xs">${site.description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="${site.url}" class="togo text-center text-muted is-views" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="直达" rel="nofollow" rel="noopener noreferrer"><i class="iconfont icon-goto"></i></a>
+                </div>
+            </div>`;
+}
+
+function generateSiteDetailPage(site) {
+    const categoryName = getCategoryName(site.category);
+    const relatedSites = (site.relatedIds || [])
+        .map(id => data.sites.find(s => s.id === id))
+        .filter(Boolean);
+
+    return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>${site.name} | MyACG</title>
+<meta name="theme-color" content="#f9f9f9">
+<meta name="keywords" content="${site.name},MyACG">
+<meta name="description" content="${site.description}">
+<meta property="og:type" content="article">
+<meta property="og:url" content="sites/${site.id}.html">
+<meta property="og:title" content="${site.name} | MyACG">
+<meta property="og:description" content="${site.description}">
+<meta property="og:image" content="https://favicon.im/${new URL(site.url).hostname}">
+<meta property="og:site_name" content="MyACG">
+<link rel="shortcut icon" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../assets/css/iconfont.css?ver=2.0406" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/all.min.css?ver=2.0406" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css?ver=2.0406" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/style.css?ver=2.0406" type="text/css" media="all">
+<script src="../assets/js/jquery.min.js?ver=2.0406"></script>
+<link rel="canonical" href="sites/${site.id}.html">
+</head>
+<body class="io-grey-mode">
+<div class="page-container">
+    <div id="sidebar" class="sticky sidebar-nav fade">
+        <div class="modal-dialog h-100 sidebar-nav-inner">
+            <div class="sidebar-logo border-bottom border-color">
+                <div class="logo overflow-hidden">
+                    <a href="/" class="logo-expanded">
+                        <img src="../assets/images/20210727002253-59085.jpeg" height="40" class="logo-light" alt="MyACG">
+                        <img src="../assets/images/20210727002253-59085.jpeg" height="40" class="logo-dark d-none" alt="MyACG">
+                    </a>
+                    <a href="/" class="logo-collapsed">
+                        <img src="../assets/images/favicon.png" height="40" class="logo-light" alt="MyACG">
+                        <img src="../assets/images/favicon.png" height="40" class="logo-dark d-none" alt="MyACG">
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-menu flex-fill">
+                <div class="sidebar-scroll">
+                    <div class="sidebar-menu-inner">
+                        <ul>
+                            <li class="sidebar-item"><a href="/#term-2" class="smooth"><i class="fas fa-image icon-fw icon-lg me-2"></i><span>次元美图</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-3" class="smooth"><i class="fas fa-play-circle icon-fw icon-lg me-2"></i><span>在线动漫</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-12" class="smooth"><i class="fab fa-stack-overflow icon-fw icon-lg me-2"></i><span>在线漫画</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-5" class="smooth"><i class="fas fa-book icon-fw icon-lg me-2"></i><span>在线本子</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-8" class="smooth"><i class="fas fa-audio-description icon-fw icon-lg me-2"></i><span>在线里番</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-6" class="smooth"><i class="fas fa-users icon-fw icon-lg me-2"></i><span>ACG资源社区</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-9" class="smooth"><i class="fas fa-university icon-fw icon-lg me-2"></i><span>ACG图书馆</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-7" class="smooth"><i class="far fa-registered icon-fw icon-lg me-2"></i><span>Galgame</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-18" class="smooth"><i class="fab fa-envira icon-fw icon-lg me-2"></i><span>轻小说</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-4" class="smooth"><i class="fas fa-download icon-fw icon-lg me-2"></i><span>动漫下载</span></a></li>
+                            <li class="sidebar-item">
+                                <a href="javascript:;"><i class="far fa-paper-plane icon-fw icon-lg me-2"></i><span>工具大全</span><i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i></a>
+                                <ul>
+                                    <li><a href="/#term-11" class="smooth"><span>BT下载站</span></a></li>
+                                    <li><a href="/#term-15" class="smooth"><span>BT下载软件</span></a></li>
+                                    <li><a href="/#term-17" class="smooth"><span>Telegram频道</span></a></li>
+                                    <li><a href="/#term-13" class="smooth"><span>图源搜索工具</span></a></li>
+                                    <li><a href="/#term-16" class="smooth"><span>进阶ACG必备</span></a></li>
+                                    <li><a href="/#term-22" class="smooth"><span>付费网盘资源下载</span></a></li>
+                                    <li><a href="/#term-21" class="smooth"><span>其它小工具</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item"><a href="/#term-14" class="smooth"><i class="fas fa-shopping-bag icon-fw icon-lg me-2"></i><span>ACG购物</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top py-2 border-color">
+                <div class="flex-bottom">
+                    <ul>
+                        <li class="sidebar-item"><a href="/sitetrash/"><i class="fas fa-trash icon-fw icon-lg me-2"></i>失效归档</a></li>
+                        <li class="sidebar-item"><a href="/postsite/"><i class="fas fa-link icon-fw icon-lg me-2"></i>投稿&反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content flex-fill single">
+        <div id="header" class="page-header big sticky">
+            <div class="navbar navbar-expand-md">
+                <div class="container-fluid p-0">
+                    <a href="/" class="navbar-brand d-md-none">
+                        <img src="../assets/images/favicon.png" class="logo-light" alt="MyACG">
+                        <img src="../assets/images/favicon.png" class="logo-dark d-none" alt="MyACG">
+                    </a>
+                    <div class="collapse navbar-collapse order-2 order-md-1">
+                        <div class="header-mini-btn">
+                            <label>
+                                <input id="mini-button" type="checkbox" checked>
+                                <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
+                                    <path class="line--2" d="M0 50h80"></path>
+                                    <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45"></path>
+                                </svg>
+                            </label>
+                        </div>
+                        <ul class="navbar-nav site-menu me-4"></ul>
+                    </div>
+                    <ul class="nav navbar-menu text-xs order-1 order-md-2">
+                        <li class="nav-item me-3 mr-lg-0 d-none d-lg-block">
+                            <div class="text-sm overflowClip_1">
+                                <script src="//v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+                                <span id="hitokoto"></span>
+                            </div>
+                        </li>
+                        <li class="nav-item d-md-none mobile-menu ms-4">
+                            <a href="javascript:/" id="sidebar-switch" data-bs-toggle="modal" data-bs-target="#sidebar"><i class="iconfont icon-classification icon-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="container my-2 my-md-3">
+            <div class="row site-content py-4 py-md-5 mb-xl-5 mb-0">
+                <div class="col-12 col-sm-5 col-md-4 col-lg-3">
+                    <div class="siteico">
+                        <div class="blur blur-layer" style="background: transparent url(https://favicon.im/${new URL(site.url).hostname}) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;animation: rotate 30s linear infinite;"></div>
+                        <img class="img-cover" src="https://favicon.im/${new URL(site.url).hostname}" alt="${site.name}" title="${site.name}">
+                        <div id="country" class="text-xs custom-piece_c_b country-piece loadcountry">
+                            <i class="iconfont icon-globe me-1"></i>加载中...
+                        </div>
+                        <div class="tool-actions text-center mt-md-4">
+                            <a href="javascript:;" post_like data-id="${site.id}" class="btn btn-like btn-icon btn-light rounded-circle p-2 mx-3 mx-md-2" data-bs-toggle="tooltip" data-bs-placement="top" title="点赞">
+                                <span class="flex-column text-height-xs">
+                                    <i class="icon-lg iconfont icon-like"></i>
+                                    <small class="like-count text-xs mt-1">loading...</small>
+                                </span>
+                            </a>
+                            <a href="javascript:;" class="btn-share-toggler btn btn-icon btn-light rounded-circle p-2 mx-3 mx-md-2" data-bs-toggle="tooltip" data-bs-placement="top" title="浏览">
+                                <span class="flex-column text-height-xs">
+                                    <i class="icon-lg iconfont icon-chakan"></i>
+                                    <small class="share-count text-xs mt-1">loading...</small>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mt-4 mt-sm-0">
+                    <div class="site-body text-sm">
+                        <span class="btn-cat custom_btn-d mb-2">${categoryName}</span>
+                        <div class="site-name h3 my-3">${site.name}</div>
+                        <div class="mt-2">
+                            <p class="mb-2">${site.description}</p>
+                            <div class="site-go mt-3">
+                                <span class="site-go-url">
+                                    <a style="margin-right: 10px;" href="${site.url}" title="${site.name}" target="_blank" class="btn btn-arrow" rel="noopener noreferrer"><span>链接直达<i class="iconfont icon-arrow-r-m"></i></span></a>
+                                </span>
+                                <a href="javascript:/" class="btn btn-arrow qr-img" data-bs-toggle="tooltip" data-bs-placement="bottom" title="" data-bs-html="true" data-bs-original-title="<img src='https://my.tv.sohu.com/user/a/wvideo/getQRCode.do?width=150&height=150&text=${encodeURIComponent(site.url)}' width='150'>"><span>手机查看<i class="iconfont icon-qr-sweep"></i></span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel site-content card transparent">
+                <div class="card-body p-0">
+                    <div class="apd-bg"></div>
+                    <div class="panel-body my-4">
+                        <p>${site.description}</p>
+                    </div>
+                </div>
+        </div>
+        <footer class="main-footer footer-type-1 text-xs">
+            <div id="footer-tools" class="d-flex flex-column">
+                <a href="javascript:/" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top"><i class="iconfont icon-to-up"></i></a>
+                <a href="javascript:/" id="switch-mode" class="btn rounded-circle switch-dark-mode m-1" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式"><i class="mode-ico iconfont icon-light"></i></a>
+            </div>
+            <div class="footer-inner" style="text-align: center;">
+                <div class="footer-text">
+                    © 2023 MyACG &nbsp;&nbsp;Design by <a href="/" target="_blank" rel="noopener noreferrer"><strong>Z</strong></a>&nbsp;&nbsp;|&nbsp;<a href="donate/" target="_blank" rel="noopener noreferrer"><strong>Donate</strong></a>
+                </div>
+                <div class="footer-text mt-2" style="font-size: 11px; color: #888; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    <strong>免责声明：</strong>本站仅提供网站链接导航服务，不存储、不制作、不传播任何内容。所有链接均指向第三方网站本站对第三方网站内容不承担任何责任。如有侵权内容，请联系站长删除。本站仅供学习交流使用，请勿用于非法用途。
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script type="text/javascript">
+var theme = {"ajaxurl":"","addico":"","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"0","icourl":"","icopng":"","urlformat":"0","customizemax":"10","newWindow":"1","lazyload":"0","minNav":"","loading":"0"};
+</script>
+<script src="../assets/js/bootstrap.min.js?ver=2.0406"></script>
+<script src="../assets/js/theia-sticky-sidebar.js?ver=2.0406"></script>
+<script src="../assets/js/lazyload.min.js?ver=2.0406"></script>
+<script src="../assets/js/app.js?ver=2.0406"></script>
+<script>
+$(document).on('click','a.smooth-n',function(ev) {
+    ev.preventDefault();
+    var href = $(this).attr("href");
+    var target = document.querySelector(href);
+    if(target) {
+        var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({top: offset, behavior: 'smooth'});
+    }
+});
+</script>
+</body>
+</html>`;
+}
+
+function generateTrashPage() {
+    const siteCards = data.trashSites.map(site => {
+        const faviconUrl = site.url.startsWith('http') ? `https://favicon.im/${new URL(site.url).hostname}` : 'assets/images/favicon.png';
+        return `
+                        <div class="url-card col-6 col-sm-4 col-md-3 col-lg-2">
+                            <div class="url-body default">
+                                <a href="${site.oldUrl}" target="_blank" data-id="${site.id}" class="card no-c mb-4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${site.description}">
+                                    <div class="card-body">
+                                        <div class="url-content d-flex align-items-center">
+                                            <div class="url-img rounded-circle me-2 d-flex align-items-center justify-content-center">
+                                                <img class="lazy" src="../assets/images/favicon.png" data-src="${faviconUrl}" onerror="this.src='../assets/images/favicon.png'">
+                                            </div>
+                                            <div class="url-info flex-fill">
+                                                <div class="text-sm overflowClip_1"><strong>${site.name}</strong></div>
+                                                <p class="overflowClip_1 m-0 text-muted text-xs">${site.description}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a href="${site.url}" class="togo text-center text-muted is-views" target="_blank" data-bs-toggle="tooltip" data-bs-placement="right" title="直达"><i class="iconfont icon-goto"></i></a>
+                            </div>
+                        </div>`;
+    }).join('\n');
+
+    return `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>失效归档 | MyACG</title>
+<meta name="theme-color" content="#f9f9f9">
+<meta name="keywords" content="失效归档,MyACG">
+<meta name="description" content="MyACG盒子，ACG二次元导航盒子，收录ACG二次元相关的网站盒子，打造一个ACG二次元专属的网站。">
+<link rel="shortcut icon" href="../assets/images/favicon.png">
+<link rel="apple-touch-icon" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="../assets/css/iconfont.css?ver=2.0406" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/all.min.css?ver=2.0406" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/bootstrap.min.css?ver=2.0406" type="text/css" media="all">
+<link rel="stylesheet" href="../assets/css/style.css?ver=2.0406" type="text/css" media="all">
+<script src="../assets/js/jquery.min.js?ver=2.0406"></script>
+</head>
+<body class="io-grey-mode">
+<div class="scrollbar" id="bar" style="width: 0%; background: skyblue;"></div>
+<div class="page-container">
+    <div id="sidebar" class="sticky sidebar-nav fade">
+        <div class="modal-dialog h-100 sidebar-nav-inner">
+            <div class="sidebar-logo border-bottom border-color">
+                <div class="logo overflow-hidden">
+                    <a href="/" class="logo-expanded">
+                        <img src="../assets/images/20210727002253-59085.jpeg" height="40" class="logo-light" alt="MyACG">
+                        <img src="../assets/images/20210727002253-59085.jpeg" height="40" class="logo-dark d-none" alt="MyACG">
+                    </a>
+                    <a href="/" class="logo-collapsed">
+                        <img src="../assets/images/favicon.png" height="40" class="logo-light" alt="MyACG">
+                        <img src="../assets/images/favicon.png" height="40" class="logo-dark d-none" alt="MyACG">
+                    </a>
+                </div>
+            </div>
+            <div class="sidebar-menu flex-fill">
+                <div class="sidebar-scroll">
+                    <div class="sidebar-menu-inner">
+                        <ul>
+                            <li class="sidebar-item"><a href="/#term-2" class="smooth"><i class="fas fa-image icon-fw icon-lg me-2"></i><span>次元美图</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-3" class="smooth"><i class="fas fa-play-circle icon-fw icon-lg me-2"></i><span>在线动漫</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-12" class="smooth"><i class="fab fa-stack-overflow icon-fw icon-lg me-2"></i><span>在线漫画</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-5" class="smooth"><i class="fas fa-book icon-fw icon-lg me-2"></i><span>在线本子</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-8" class="smooth"><i class="fas fa-audio-description icon-fw icon-lg me-2"></i><span>在线里番</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-6" class="smooth"><i class="fas fa-users icon-fw icon-lg me-2"></i><span>ACG资源社区</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-9" class="smooth"><i class="fas fa-university icon-fw icon-lg me-2"></i><span>ACG图书馆</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-7" class="smooth"><i class="far fa-registered icon-fw icon-lg me-2"></i><span>Galgame</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-18" class="smooth"><i class="fab fa-envira icon-fw icon-lg me-2"></i><span>轻小说</span></a></li>
+                            <li class="sidebar-item"><a href="/#term-4" class="smooth"><i class="fas fa-download icon-fw icon-lg me-2"></i><span>动漫下载</span></a></li>
+                            <li class="sidebar-item">
+                                <a href="javascript:;"><i class="far fa-paper-plane icon-fw icon-lg me-2"></i><span>工具大全</span><i class="iconfont icon-arrow-r-m sidebar-more text-sm"></i></a>
+                                <ul>
+                                    <li><a href="/#term-11" class="smooth"><span>BT下载站</span></a></li>
+                                    <li><a href="/#term-15" class="smooth"><span>BT下载软件</span></a></li>
+                                    <li><a href="/#term-17" class="smooth"><span>Telegram频道</span></a></li>
+                                    <li><a href="/#term-13" class="smooth"><span>图源搜索工具</span></a></li>
+                                    <li><a href="/#term-16" class="smooth"><span>进阶ACG必备</span></a></li>
+                                    <li><a href="/#term-22" class="smooth"><span>付费网盘资源下载</span></a></li>
+                                    <li><a href="/#term-21" class="smooth"><span>其它小工具</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item"><a href="/#term-14" class="smooth"><i class="fas fa-shopping-bag icon-fw icon-lg me-2"></i><span>ACG购物</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-top py-2 border-color">
+                <div class="flex-bottom">
+                    <ul>
+                        <li class="sidebar-item"><a href="/sitetrash/"><i class="fas fa-trash icon-fw icon-lg me-2"></i>失效归档</a></li>
+                        <li class="sidebar-item"><a href="/postsite/"><i class="fas fa-link icon-fw icon-lg me-2"></i>投稿&反馈</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content flex-fill">
+        <div id="header" class="page-header big sticky">
+            <div class="navbar navbar-expand-md">
+                <div class="container-fluid p-0">
+                    <a href="/" class="navbar-brand d-md-none">
+                        <img src="../assets/images/favicon.png" class="logo-light" alt="MyACG">
+                        <img src="../assets/images/favicon.png" class="logo-dark d-none" alt="MyACG">
+                    </a>
+                    <div class="collapse navbar-collapse order-2 order-md-1">
+                        <div class="header-mini-btn">
+                            <label>
+                                <input id="mini-button" type="checkbox" checked>
+                                <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
+                                    <path class="line--2" d="M0 50h80"></path>
+                                    <path class="line--3" d="M0 60h62c18 0 18 20-17-5L31 45"></path>
+                                </svg>
+                            </label>
+                        </div>
+                        <ul class="navbar-nav site-menu me-4"></ul>
+                    </div>
+                    <ul class="nav navbar-menu text-xs order-1 order-md-2">
+                        <li class="nav-item me-3 mr-lg-0 d-none d-lg-block">
+                            <div class="text-sm overflowClip_1">
+                                <script src="//v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+                                <span id="hitokoto"></span>
+                            </div>
+                        </li>
+                        <li class="nav-item d-md-none mobile-menu ms-4">
+                            <a href="javascript:/" id="sidebar-switch" data-bs-toggle="modal" data-bs-target="#sidebar"><i class="iconfont icon-classification icon-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="content" class="content-site customize-site">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h4 class="text-gray text-lg mb-4"><i class="site-tag iconfont icon-tag icon-lg me-1"></i>失效归档</h4>
+                    <div class="row">
+${siteCards}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="main-footer footer-type-1 text-xs">
+            <div id="footer-tools" class="d-flex flex-column">
+                <a href="javascript:/" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top"><i class="iconfont icon-to-up"></i></a>
+                <a href="javascript:/" id="switch-mode" class="btn rounded-circle switch-dark-mode m-1" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式"><i class="mode-ico iconfont icon-light"></i></a>
+            </div>
+            <div class="footer-inner" style="text-align: center;">
+                <div class="footer-text">
+                    © 2023 MyACG &nbsp;&nbsp;Design by <a href="/" target="_blank" rel="noopener noreferrer"><strong>Z</strong></a>&nbsp;&nbsp;|&nbsp;<a href="donate/" target="_blank" rel="noopener noreferrer"><strong>Donate</strong></a>
+                </div>
+                <div class="footer-text mt-2" style="font-size: 11px; color: #888; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    <strong>免责声明：</strong>本站仅提供网站链接导航服务，不存储、不制作、不传播任何内容。所有链接均指向第三方网站本站对第三方网站内容不承担任何责任。如有侵权内容，请联系站长删除。本站仅供学习交流使用，请勿用于非法用途。
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<script type="text/javascript">
+var theme = {"ajaxurl":"","addico":"","order":"asc","formpostion":"top","defaultclass":"io-grey-mode","isCustomize":"0","icourl":"","icopng":"","urlformat":"0","customizemax":"10","newWindow":"1","lazyload":"0","minNav":"","loading":"0"};
+</script>
+<script src="../assets/js/bootstrap.min.js?ver=2.0406"></script>
+<script src="../assets/js/theia-sticky-sidebar.js?ver=2.0406"></script>
+<script src="../assets/js/lazyload.min.js?ver=2.0406"></script>
+<script src="../assets/js/app.js?ver=2.0406"></script>
+<script>
+$(document).on('click','a.smooth-n',function(ev) {
+    ev.preventDefault();
+    var href = $(this).attr("href");
+    var target = document.querySelector(href);
+    if(target) {
+        var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
+        window.scrollTo({top: offset, behavior: 'smooth'});
+    }
+});
+</script>
+</body>
+</html>`;
+}
+
+function generateAll() {
+    console.log('Starting HTML generation...\n');
+
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+    }
+
+    let generatedCount = 0;
+
+    for (const site of data.sites) {
+        const html = generateSiteDetailPage(site);
+        const filePath = path.join(OUTPUT_DIR, `${site.id}.html`);
+        fs.writeFileSync(filePath, html);
+        console.log(`Generated: sites/${site.id}.html - ${site.name}`);
+        generatedCount++;
+    }
+
+    const trashHtml = generateTrashPage();
+    fs.writeFileSync(path.join(TRASH_DIR, 'index.html'), trashHtml);
+    console.log(`\nGenerated: sitetrash/index.html - ${data.trashSites.length} trash sites`);
+
+    console.log(`\n✅ Total: ${generatedCount} site pages generated`);
+    console.log('\nGeneration complete!');
+}
+
+if (require.main === module) {
+    generateAll();
+}
+
+module.exports = { generateAll, generateSiteDetailPage, generateTrashPage, generateSiteCard };
