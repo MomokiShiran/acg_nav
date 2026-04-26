@@ -71,7 +71,7 @@ a img.aligncenter{display:block;margin-left:auto;margin-right:auto}
 .sidebar-nav .logo{line-height:74px;width:100%;text-align:center}
 .sidebar-nav .logo .logo-collapsed{display:none}
 .sidebar-logo{height:74px;transition:background-color .2s}
-.sidebar-logo img{max-height:40px}
+.sidebar-logo img{max-height:40px;width:auto;object-fit:contain}
 .sidebar-menu{transition:all .3s;}
 .sidebar-nav .flex-bottom a,.sidebar-menu-inner a{display:block;overflow:hidden;padding-left:1.125rem;line-height:40px;max-height:40px;color:#b2b8be;transition:all .3s}
 .sidebar-menu ul:first-child > li> a,.sidebar-menu ul:first-child > li> a span{ line-height:50px;max-height:50px;}
@@ -263,7 +263,7 @@ a>i.sidebar-more{transform:scale(.8)}
 ## footer style
 --------------------------------------------------------------*/
 footer.main-footer{padding:20px 30px;margin-top:0px}
-#footer-tools{position:fixed;bottom:20px;right:20px;display:flex}
+#footer-tools{position:fixed;bottom:20px;right:20px;display:flex;z-index:1082}
 #footer-tools .btn{color:#777;background:#eee;width:40px;height:40px;font-size:1rem;text-align:center;line-height:40px;padding:unset;display:block;border:unset}
 #footer-tools .go-up{display:none}
 #footer-tools .btn:hover{color:#444}
@@ -643,8 +643,7 @@ th,td{border:1px solid rgba(136,136,136,.3);padding:8px 12px}
 .btn-arrow span{padding-right:1.25rem;display:inline-block}
 .btn-arrow i{position:absolute;font-size:18px;width:.8em;right:1rem;top:50%;opacity:.6;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);-webkit-transition:all 200ms ease-out;-o-transition:all 200ms ease-out;transition:all 200ms ease-out;will-change:right,opacity}
 .btn-arrow:hover i,.btn-arrow:focus i{opacity:1;right:.6rem}
-.btn-cat{color:#fff!important;background:#f1404b;font-size:12px;padding:2px 5px;border-radius:4px;transition:.3s}
-.btn-cat:hover{color:#fff;background:#212224}
+.btn-cat{color:#fff!important;background:#f1404b;font-size:12px;padding:2px 5px;border-radius:4px}
 .btn-icon{text-align:center;width:3.125rem;height:3.125rem;padding:0!important;position:relative}
 .btn-icon span{position:absolute;width:100%;height:100%;top:0;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .country-piece{position:absolute;color:#fff;top:10px;right:10px;transition:.3s;padding:0 5px;background:#f1404b;border-radius:20px}
