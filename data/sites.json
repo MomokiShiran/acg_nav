@@ -114,7 +114,8 @@
       "url": "https://www.lspbz.com",
       "description": "LSP的动漫游戏二次元原画壁纸图片库",
       "category": "term-2",
-      "isNew": true
+      "isNew": true,
+      "detail": "LSP壁纸，专注分享二次元、动漫、游戏、人物、主题等画师原画插画壁纸图集，二次元美图，动漫游戏壁纸，人物主题原画，手机电脑壁纸"
     },
     {
       "id": 270,
@@ -162,7 +163,8 @@
       "url": "https://chan.sankakucomplex.com/cn",
       "description": "以18R齐全的著名CG站，内容丰富齐全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "需要注册账号才能浏览所有图片，游客模式受限浏览。"
     },
     {
       "id": 22,
@@ -170,7 +172,8 @@
       "url": "https://safebooru.org/index.php?page=post&s=list",
       "description": "知名CG站，内容较全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "Safebooru"
     },
     {
       "id": 21,
@@ -178,7 +181,8 @@
       "url": "https://yande.re/post",
       "description": "著名CG站，内容非常齐全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "yande.re"
     },
     {
       "id": 19,
@@ -186,7 +190,8 @@
       "url": "https://danbooru.donmai.us",
       "description": "著名CG站，内容基本齐全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "Danbooru"
     },
     {
       "id": 18,
@@ -194,7 +199,8 @@
       "url": "https://gelbooru.com/index.php?page=post&s=list&tags=all",
       "description": "著名CG站，内容基本齐全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "Gelbooru"
     },
     {
       "id": 17,
@@ -202,7 +208,8 @@
       "url": "https://tbib.org/index.php?page=post&s=list&pid=0",
       "description": "知名CG站，内容较全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "TBIB"
     },
     {
       "id": 16,
@@ -210,7 +217,8 @@
       "url": "https://konachan.com/post",
       "description": "知名CG站，内容较全",
       "category": "term-2",
-      "isNew": false
+      "isNew": false,
+      "detail": "konachan"
     },
     {
       "id": 14,
@@ -226,7 +234,8 @@
       "url": "https://www.invbo.ink",
       "description": "旧番画质一般",
       "category": "term-3",
-      "isNew": true
+      "isNew": true,
+      "detail": "不可视境界线一个完全免费无需登录的动画观看地点----由匿名用户提供"
     },
     {
       "id": 447,
@@ -234,7 +243,8 @@
       "url": "http://www.ydm.life",
       "description": "旧番画质一般，播放速度较快",
       "category": "term-3",
-      "isNew": true
+      "isNew": true,
+      "detail": "次元动漫一家免费在线动漫网站、二次元动漫的小站、次元动漫网拥有最新的日本动漫,最新番剧、动�?,全站无广告播放、次元动漫完美支持电脑手机端观看、赶快加入次元动漫吧�?-----由匿名用户提供�?"
     },
     {
       "id": 435,
@@ -250,7 +260,8 @@
       "url": "https://kumanshe.com",
       "description": "以免费国漫为主",
       "category": "term-3",
-      "isNew": true
+      "isNew": true,
+      "detail": "酷漫社是一家漫画免费分享以及在线浏览平台，这里有及时的新番漫画，活跃的ACG氛围，有创意的漫画师�?"
     },
     {
       "id": 406,
@@ -266,7 +277,8 @@
       "url": "http://haliyy.com",
       "description": "资源较全，画质较差，路线多",
       "category": "term-3",
-      "isNew": true
+      "isNew": true,
+      "detail": "感谢服服服鸡的投稿"
     },
     {
       "id": 391,
@@ -282,7 +294,8 @@
       "url": "https://acgfantuan.com",
       "description": "以新番为主，无广告",
       "category": "term-3",
-      "isNew": true
+      "isNew": true,
+      "detail": "以新番为主，无广告，地址发布页：https://fantuantv.com/"
     },
     {
       "id": 385,
@@ -298,7 +311,8 @@
       "url": "https://omofun.tv/",
       "description": "【需要下载APP】画质高，弹幕多",
       "category": "term-3",
-      "isNew": true
+      "isNew": true,
+      "detail": "支持安卓和IOS"
     },
     {
       "id": 380,
@@ -362,7 +376,8 @@
       "url": "https://ani.gamer.com.tw",
       "description": "台湾正版动漫播放平台",
       "category": "term-3",
-      "isNew": false
+      "isNew": false,
+      "detail": "仅限台湾观看"
     },
     {
       "id": 72,
@@ -370,7 +385,8 @@
       "url": "https://www.dilidili8.cc",
       "description": "DiliDili，创始人被抓",
       "category": "term-3",
-      "isNew": false
+      "isNew": false,
+      "detail": "这个应该是盗版网站，创始人都被抓了。"
     },
     {
       "id": 71,
@@ -418,7 +434,8 @@
       "url": "https://www.52hah.com",
       "description": "支持滚动阅读，更新较快，资源较丰富",
       "category": "term-12",
-      "isNew": true
+      "isNew": true,
+      "detail": "感谢开心就好的投稿"
     },
     {
       "id": 389,
@@ -434,7 +451,8 @@
       "url": "http://www.iewoai.com",
       "description": "免费无广告的漫画平台",
       "category": "term-12",
-      "isNew": true
+      "isNew": true,
+      "detail": "免费无广告的漫画平台（ps：有时候可能打不开。------感谢由德皇威廉九世提供该网站"
     },
     {
       "id": 291,
@@ -450,7 +468,8 @@
       "url": "https://www.manhuagui.com",
       "description": "内容较全，更新速度快",
       "category": "term-12",
-      "isNew": false
+      "isNew": false,
+      "detail": "备份：https://tw.manhuagui.com/"
     },
     {
       "id": 230,
@@ -490,7 +509,8 @@
       "url": "https://mangaraw.to",
       "description": "生肉日语漫画",
       "category": "term-12",
-      "isNew": false
+      "isNew": false,
+      "detail": "日语生肉，搜索框在最上面。"
     },
     {
       "id": 69,
@@ -498,7 +518,8 @@
       "url": "https://www.soman.com",
       "description": "漫画搜索引擎",
       "category": "term-12",
-      "isNew": false
+      "isNew": false,
+      "detail": "描述：搜漫连接了全网多个资源丰富的漫画源，为漫画爱好者提供最新最全的漫画资源搜索服务，带你享受一站式看遍全网漫画的极致体验。"
     },
     {
       "id": 66,
@@ -514,7 +535,8 @@
       "url": "https://readhentai.info",
       "description": "支持滚动阅读，加载较慢",
       "category": "term-5",
-      "isNew": true
+      "isNew": true,
+      "detail": "感谢SZ.LYSMS的投稿"
     },
     {
       "id": 355,
@@ -538,7 +560,8 @@
       "url": "https://nhentai.net",
       "description": "英文界面，更新速度较快",
       "category": "term-5",
-      "isNew": false
+      "isNew": false,
+      "detail": "nhentai安卓客户端：https://github.com/Dar9586/NClientV2"
     },
     {
       "id": 106,
@@ -546,7 +569,8 @@
       "url": "https://jmcomic1.bet",
       "description": "【发布页】不太全的本子在线阅读&amp;下载&amp;交流站",
       "category": "term-5",
-      "isNew": false
+      "isNew": false,
+      "detail": "不要用日本IP。否则上不去"
     },
     {
       "id": 104,
@@ -562,7 +586,8 @@
       "url": "https://acgbeo.com",
       "description": "国内某不知名本子在线阅览站",
       "category": "term-5",
-      "isNew": false
+      "isNew": false,
+      "detail": "需要注册登入开放搜索权限。"
     },
     {
       "id": 33,
@@ -570,7 +595,8 @@
       "url": "https://exhentai.org",
       "description": "ExHentai【需Cookie登录】",
       "category": "term-5",
-      "isNew": false
+      "isNew": false,
+      "detail": "ipb_member_id=5113267"
     },
     {
       "id": 31,
@@ -578,7 +604,8 @@
       "url": "https://www.picacomic.com",
       "description": "哔咔漫画 [需要下载app]",
       "category": "term-5",
-      "isNew": false
+      "isNew": false,
+      "detail": "哔咔漫画[需要下载app]"
     },
     {
       "id": 390,
@@ -586,7 +613,8 @@
       "url": "https://latinohentai.com",
       "description": "在线里番,英文界面，轻量级广告",
       "category": "term-8",
-      "isNew": true
+      "isNew": true,
+      "detail": "在线日本动漫里番"
     },
     {
       "id": 374,
@@ -594,7 +622,8 @@
       "url": "http://www.acgndmku.com",
       "description": "免费看番，表里均有",
       "category": "term-8",
-      "isNew": false
+      "isNew": false,
+      "detail": "--------感谢匿名用户提供此网站"
     },
     {
       "id": 234,
@@ -658,7 +687,8 @@
       "url": "https://hanime1.me",
       "description": "知名有中文字幕的H动漫在线播放平台",
       "category": "term-8",
-      "isNew": false
+      "isNew": false,
+      "detail": "需要港澳台ip的科学上网"
     },
     {
       "id": 42,
@@ -666,7 +696,8 @@
       "url": "https://hentaianimezone.com",
       "description": "里番领域展开",
       "category": "term-8",
-      "isNew": false
+      "isNew": false,
+      "detail": "广告有点多。。。不推荐"
     },
     {
       "id": 449,
@@ -674,7 +705,8 @@
       "url": "https://kgacg.com",
       "description": "积分制，下载次数受限，含AI",
       "category": "term-6",
-      "isNew": true
+      "isNew": true,
+      "detail": "一个分享与储存爱的地方！！----由匿名用户提供"
     },
     {
       "id": 448,
@@ -682,7 +714,8 @@
       "url": "https://mmys.us",
       "description": "综合资源下载站，下载次数与活跃等级绑定",
       "category": "term-6",
-      "isNew": true
+      "isNew": true,
+      "detail": "萌萌御所，一个致力于优秀ACG资源的整理发布平台，搜集整理各类里番、Galgame、同人音声、同人动画、音乐，萌图，动漫等二次元资源。-------由匿名用户提供。"
     },
     {
       "id": 436,
@@ -698,7 +731,8 @@
       "url": "https://bbs.cloudwl.com",
       "description": "综合资源交流站",
       "category": "term-6",
-      "isNew": true
+      "isNew": true,
+      "detail": "感谢こんばんは的投稿"
     },
     {
       "id": 362,
@@ -722,7 +756,8 @@
       "url": "https://www.hentaiclub.net",
       "description": "无需注册",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "萌新指南"
     },
     {
       "id": 300,
@@ -866,7 +901,8 @@
       "url": "https://blog.reimu.net",
       "description": "绅士的幻想乡",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "密码是⑨，手打无效，要复制粘贴。"
     },
     {
       "id": 109,
@@ -874,7 +910,8 @@
       "url": "https://hxcy.moe",
       "description": "熟人邀请机制注册，注册后开放绅士内容",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "不要用代理。"
     },
     {
       "id": 108,
@@ -890,7 +927,8 @@
       "url": "https://www.ymgal.games",
       "description": "国内知名Galgame交流论坛，提供特殊码和最新讯息。",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "特殊码：https://www.ymgal.game/specialcode"
     },
     {
       "id": 78,
@@ -898,7 +936,8 @@
       "url": "https://www.spring-plus.net",
       "description": "国内著名ACG资源社区【已关闭注册】",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "已关闭注册。"
     },
     {
       "id": 77,
@@ -906,7 +945,8 @@
       "url": "https://www.sayhuahuo.com",
       "description": "知名ACG资源论坛【答题获取邀请码】",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "目前开放注册，邀请码需要答题。"
     },
     {
       "id": 63,
@@ -914,7 +954,8 @@
       "url": "https://bbs4.2djgame.net/home/forum.php",
       "description": "中文版Mikocon",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "2DJGAME-MikoconEntrance"
     },
     {
       "id": 62,
@@ -922,7 +963,8 @@
       "url": "https://www.mikocon.com/forum.php",
       "description": "国外著名galgame资源站",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "不要用日本IP。"
     },
     {
       "id": 52,
@@ -930,7 +972,8 @@
       "url": "https://fapforfun.net/post",
       "description": "欧美ACG（含RPG类）bt下载资源站",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "FapForFun"
     },
     {
       "id": 44,
@@ -954,7 +997,8 @@
       "url": "https://zodgame.xyz",
       "description": "著名illusion的资源站",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "ZODGAME,zodgame,游戏论坛,illusion,gal,汉化"
     },
     {
       "id": 35,
@@ -962,7 +1006,8 @@
       "url": "https://hacg.me",
       "description": "琉璃神社【真货】",
       "category": "term-6",
-      "isNew": false
+      "isNew": false,
+      "detail": "对应的冒牌货：https://llss.at/wp/"
     },
     {
       "id": 272,
@@ -994,7 +1039,8 @@
       "url": "https://steamgalgame.com",
       "description": "收录steam上所有官方汉化的Galgame信息站",
       "category": "term-9",
-      "isNew": false
+      "isNew": false,
+      "detail": "关于"
     },
     {
       "id": 81,
@@ -1010,7 +1056,8 @@
       "url": "https://docs.google.com/spreadsheets/d/1xOzRNqtdjjX445izA392jvMTMRgBQ5XcEawC5spR3_Y/edit#gid=572994687",
       "description": "随时了解汉化进程和最新发布作品。",
       "category": "term-9",
-      "isNew": false
+      "isNew": false,
+      "detail": "原作者链接：https://home.gamer.com.tw/creationDetail.php?sn=1972708"
     },
     {
       "id": 61,
@@ -1018,7 +1065,8 @@
       "url": "https://www.cngal.org",
       "description": "国产Galgame信息站",
       "category": "term-9",
-      "isNew": false
+      "isNew": false,
+      "detail": "中文GalGame资料站"
     },
     {
       "id": 51,
@@ -1026,7 +1074,8 @@
       "url": "https://bgm.tv",
       "description": "中国著名ACG图书馆&amp;评分网站",
       "category": "term-9",
-      "isNew": false
+      "isNew": false,
+      "detail": "Bangumi番组计划：专注于动漫、音乐、游戏领域，帮助你分享、发现与结识同好的ACG网络"
     },
     {
       "id": 50,
@@ -1042,7 +1091,8 @@
       "url": "http://erogamescape.dyndns.org/~ap2/ero/toukei_kaiseki",
       "description": "日本著名galgame图书馆&amp;评分网站",
       "category": "term-9",
-      "isNew": false
+      "isNew": false,
+      "detail": "目前科学上网可以进去"
     },
     {
       "id": 48,
@@ -1066,7 +1116,8 @@
       "url": "https://vndb.org",
       "description": "欧美著名galgame图书馆&amp;评分网站",
       "category": "term-9",
-      "isNew": false
+      "isNew": false,
+      "detail": "全称：thevisualnoveldatabase"
     },
     {
       "id": 45,
@@ -1082,7 +1133,8 @@
       "url": "https://www.galxp.com",
       "description": "免费分享galgame汉化和生肉资源，更新勤快",
       "category": "term-7",
-      "isNew": true
+      "isNew": true,
+      "detail": "免费分享galgame汉化和生肉资源，更新勤快（感谢nilihity的投稿~）"
     },
     {
       "id": 401,
@@ -1090,7 +1142,8 @@
       "url": "https://xiayuge.top",
       "description": "主要以收录galgame的资源网站",
       "category": "term-7",
-      "isNew": true
+      "isNew": true,
+      "detail": "感谢zhhfate的投稿"
     },
     {
       "id": 392,
@@ -1138,7 +1191,8 @@
       "url": "https://www.ttloli.com",
       "description": "忧郁的loli_忧郁的弟弟，汉化galgame分享站",
       "category": "term-7",
-      "isNew": false
+      "isNew": false,
+      "detail": "带站长入坑之站。弟弟yyds"
     },
     {
       "id": 39,
@@ -1146,7 +1200,8 @@
       "url": "https://bbs.zdfx.net",
       "description": "终点论坛。欢迎来到终点论坛，这里热爱和平，以二次元相关话题为主，努力打造舒心畅快的聊天环境，本论坛是唯一地址，您的支持是论坛的动力",
       "category": "term-7",
-      "isNew": false
+      "isNew": false,
+      "detail": "目前需要科学上网。"
     },
     {
       "id": 38,
@@ -1154,7 +1209,8 @@
       "url": "https://www.fufugal.com",
       "description": "初音的青葱【需全局】",
       "category": "term-7",
-      "isNew": false
+      "isNew": false,
+      "detail": "需要科学上网（全局）。"
     },
     {
       "id": 165,
@@ -1210,7 +1266,8 @@
       "url": "https://fitacg.com",
       "description": "【推荐】新番资源推送速度快",
       "category": "term-4",
-      "isNew": true
+      "isNew": true,
+      "detail": "【推荐】新番资源推送速度快----由MGood投稿推荐"
     },
     {
       "id": 179,
@@ -1330,7 +1387,8 @@
       "url": "https://nyaa.si",
       "description": "全球著名全年龄ACG-bt下载站",
       "category": "term-11",
-      "isNew": false
+      "isNew": false,
+      "detail": "需要科学上网。"
     },
     {
       "id": 125,
@@ -1362,7 +1420,8 @@
       "url": "https://trackerslist.com/#/zh",
       "description": "BitTorrent Tracker 列表！",
       "category": "term-15",
-      "isNew": false
+      "isNew": false,
+      "detail": "XIU2/TrackersListCollection：https://trackerslist.com/#/zh"
     },
     {
       "id": 121,
@@ -1370,7 +1429,8 @@
       "url": "http://www.bitcomet.com/cn",
       "description": "免费|不限速|可用Tracker",
       "category": "term-15",
-      "isNew": false
+      "isNew": false,
+      "detail": "打倒迅雷！"
     },
     {
       "id": 438,
@@ -1490,7 +1550,8 @@
       "url": "https://chrome.google.com/webstore/detail/noobox/kidibbfcblfbbafhnlanccjjdehoahep",
       "description": "国内知名以图搜图浏览器插件",
       "category": "term-13",
-      "isNew": false
+      "isNew": false,
+      "detail": "二箱，一个多引擎以图搜图"
     },
     {
       "id": 92,
@@ -1554,7 +1615,8 @@
       "url": "https://notsfsssf.github.io/Pix-EzViewer",
       "description": "可直连Pixiv，下载速度较快。",
       "category": "term-16",
-      "isNew": true
+      "isNew": true,
+      "detail": "可直连Pixiv，下载速度较快。需要定期清理应用缓存，否则会导致应用无法使用（出现错误界面,无法显示图像缩略图，无法收藏）"
     },
     {
       "id": 396,
@@ -1570,7 +1632,8 @@
       "url": "https://www.mooyuu.com",
       "description": "绘画站，可接单，谨防受骗",
       "category": "term-16",
-      "isNew": true
+      "isNew": true,
+      "detail": "绘画站，可接单，谨防受骗-------感谢莯莯（疑似摸鱼网站长）提供该网站"
     },
     {
       "id": 296,
@@ -1594,7 +1657,8 @@
       "url": "https://tachiyomi.org",
       "description": "漫画聚合类app，比较常用",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "使用方法："
     },
     {
       "id": 281,
@@ -1634,7 +1698,8 @@
       "url": "http://www.acgjc.com",
       "description": "国内最新最全的动漫音乐下载网站",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "ACG漫音社是国内最新最全的动漫音乐下载网站，免费提供ACG动漫歌曲在线试听、ACG动漫无损音乐下载等服务，满足您的全方位的听歌需求。一切ACG动漫音乐下载尽在ACG漫音社!"
     },
     {
       "id": 199,
@@ -1642,7 +1707,8 @@
       "url": "https://bgmlist.com",
       "description": "专门做番剧更新信息的网站",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "这是一个专门做番剧更新信息的网站，包含当季番剧的更新时间，版权所属。对于追番记不清更新时间，更新地址的十分有帮助。"
     },
     {
       "id": 187,
@@ -1682,7 +1748,8 @@
       "url": "https://github.com/morkt/GARbro/releases/tag/v1.5.44",
       "description": "Galgame内提取无损CG",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "教程：https://www.bilibili.com/video/av93021529/"
     },
     {
       "id": 146,
@@ -1698,7 +1765,8 @@
       "url": "https://cn.bandisoft.com/bandizip",
       "description": "解压日文游戏乱码，把默认代码页改成日文。",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "Bandizip是一个强大的多功能压缩文件管理工具，可提供高速的解压缩速度和其他各种实用功能。这是一个免费的软件，其付费版本更是可以使用更多的实用功能。"
     },
     {
       "id": 136,
@@ -1706,7 +1774,8 @@
       "url": "https://chrome.google.com/webstore/detail/powerful-pixiv-downloader/dkndmhgdcmjdmkdonmbgjpijejdcilfh",
       "description": "Pixiv图片下载|批量下载|动图下载",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "功能强大的Pixiv图片、Pixiv动图、小说批量下载器。"
     },
     {
       "id": 135,
@@ -1730,7 +1799,8 @@
       "url": "http://waifu2x.udp.jp",
       "description": "在线图片降噪",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "电脑端软件下载：https://github.com/lltcggie/waifu2x-caffe/releases"
     },
     {
       "id": 131,
@@ -1738,7 +1808,8 @@
       "url": "http://vnr-file.ys168.com",
       "description": "著名Galgame日语生肉机翻软件",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "★★★VNR目前的V2/V3版的区别是？★★★"
     },
     {
       "id": 130,
@@ -1746,7 +1817,8 @@
       "url": "https://github.com/xupefei/Locale-Emulator/releases",
       "description": "游戏转区工具，玩日语生肉游戏必备",
       "category": "term-16",
-      "isNew": false
+      "isNew": false,
+      "detail": "简介"
     },
     {
       "id": 353,
@@ -1754,7 +1826,8 @@
       "url": "http://www.anime-sharing.com/forum",
       "description": "ACG综合资源，国外付费网盘资源下载",
       "category": "term-22",
-      "isNew": false
+      "isNew": false,
+      "detail": "国外恰饭网盘也太贵了，希望有一天能破解。。。"
     },
     {
       "id": 297,
@@ -1770,7 +1843,8 @@
       "url": "https://hentai-sharing.net",
       "description": "国外ACG资源付费网盘下载",
       "category": "term-22",
-      "isNew": false
+      "isNew": false,
+      "detail": "需要国外付费网盘，不推荐！"
     },
     {
       "id": 53,
@@ -1778,7 +1852,8 @@
       "url": "https://hentai-hot.com",
       "description": "欧美ACG下载资源站【需国外付费网盘】",
       "category": "term-22",
-      "isNew": false
+      "isNew": false,
+      "detail": "不太推荐，国外网盘太贵了"
     },
     {
       "id": 439,
@@ -1794,7 +1869,8 @@
       "url": "https://meow.tg",
       "description": "Telgram资源搜索引擎",
       "category": "term-21",
-      "isNew": true
+      "isNew": true,
+      "detail": "目前已经索引超过百万资源，一键投稿分享频道&amp;搜索机器人（感谢匿名用户的投稿）"
     },
     {
       "id": 398,
@@ -1914,7 +1990,8 @@
       "url": "https://www.melonbooks.co.jp",
       "description": "日本著名ACG网上购物平台",
       "category": "term-14",
-      "isNew": false
+      "isNew": false,
+      "detail": "不支持国内支付"
     },
     {
       "id": 98,
@@ -1922,7 +1999,8 @@
       "url": "https://games.dmm.co.jp/zh-CHS",
       "description": "日本著名R18游戏购买平台",
       "category": "term-14",
-      "isNew": false
+      "isNew": false,
+      "detail": "不支持国内支付。"
     },
     {
       "id": 97,
@@ -1930,7 +2008,8 @@
       "url": "https://www.dlsite.com/index.html",
       "description": "日本/台湾/中国知名ACG在线购物平台",
       "category": "term-14",
-      "isNew": false
+      "isNew": false,
+      "detail": "支持支付宝，不支持微信支付。"
     },
     {
       "id": 96,
@@ -1938,7 +2017,8 @@
       "url": "http://www.getchu.com/top.html",
       "description": "日本著名ACG网上购物平台",
       "category": "term-14",
-      "isNew": false
+      "isNew": false,
+      "detail": "不支持支付宝/微信支付。"
     }
   ]
 }
