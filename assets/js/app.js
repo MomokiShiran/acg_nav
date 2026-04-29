@@ -12,11 +12,6 @@
         if(isPC()){ initTooltips(); }else{ initTooltips('.qr-img[data-bs-toggle="tooltip"]'); }
         // 初始化tab滑块
         intoSlider();
-        // 初始化theiaStickySidebar
-        $('.sidebar').theiaStickySidebar({
-            additionalMarginTop: 90,
-            additionalMarginBottom: 20
-        });
     });
     // Enable/Disable Resizable Event
     var wid = 0;
@@ -678,3 +673,38 @@ function initTooltips(selector) {
         new bootstrap.Tooltip(tooltipTriggerEl, { trigger: 'hover' });
     });
 }
+
+// 平滑滚动功能
+$(document).ready(function() {
+    setTimeout(function() {
+        $('a.smooth[href="' + window.location.hash + '"]').click();
+    }, 300);
+
+    $(document).on('click', 'a.smooth', function(ev) {
+        ev.preventDefault();
+        var href = $(this).attr("href");
+        var target = document.querySelector(href);
+        if (target) {
+            if ($('#sidebar').hasClass('show')) $('#sidebar').removeClass('show');
+            var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
+            window.scrollTo({top: offset, behavior: 'smooth'});
+        }
+    });
+});
+
+// 随机颜色功能
+$(document).ready(function() {
+    let leftHeader = document.querySelectorAll("span.nav-icon>svg,span.nav-icon>i");
+    let leftHeaderColorArr = ["#FF69B4", "#58c7ea", "#E066FF", "#FF69B4", "#FFA54F", "#90EE90"];
+    leftHeader.forEach(tag => {
+        let tagsColor = leftHeaderColorArr[Math.floor(Math.random() * leftHeaderColorArr.length)];
+        tag.style.color = tagsColor;
+    });
+    
+    let tags = document.querySelectorAll("#tag_cloud-2 a,.list-group-item .pull-right");
+    let colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
+    tags.forEach(tag => {
+        let tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
+        tag.style.backgroundColor = tagsColor;
+    });
+});

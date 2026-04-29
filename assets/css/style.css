@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* Sidebar */
-.sidebar-nav{display:table-cell;font-size:var(--font-size-sm);width:220px;height:100vh;z-index:1081;opacity:1!important}
+.sidebar-nav{display:table-cell;font-size:var(--font-size-sm);width:220px;height:100vh;z-index:1081;opacity:1!important;position:sticky;top:0}
 .sidebar-nav-inner{width:inherit;margin:0;max-width:260px;background:var(--color-bg-dark);pointer-events:inherit;display:flex;flex-direction:column;transition:background-color var(--transition-normal)}
 .sidebar-logo{height:74px;transition:background-color var(--transition-fast);display:flex;align-items:center;justify-content:center}
 .sidebar-logo img{max-height:40px;width:auto;object-fit:contain}
