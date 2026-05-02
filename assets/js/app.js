@@ -37,8 +37,8 @@
     });
     $(document).on('click', "a[target!='_blank']", function() {
         // 关闭移动端导航栏模态框
-        if ($('#sidebar').hasClass('show')) {
-            $('#sidebar').modal('hide');
+        if ($('.sidebar').hasClass('show')) {
+            $('.sidebar').modal('hide');
         }
     });
     // 夜间模式
@@ -88,9 +88,9 @@
     //返回顶部
     $(window).scroll(function () {
         if ($(this).scrollTop() >= 50) {
-            $('#go-to-up').fadeIn(200);
+            $('.go-to-up').fadeIn(200);
         } else {
-            $('#go-to-up').fadeOut(200);
+            $('.go-to-up').fadeOut(200);
         }
     });
     $('.go-up').click(function () {
@@ -154,8 +154,8 @@
     }
  
 
-    $('#sidebar-switch').on('click',function(){
-        $('#sidebar').removeClass('mini-sidebar');
+    $('.sidebar-switch').on('click',function(){
+        $('.sidebar').removeClass('mini-sidebar');
 
     }); 
  
@@ -164,25 +164,25 @@
         isMobileMin = false;
     function trigger_resizable( isNoAnim=false ) {
         if(!isMin && 767.98<$(window).width() && $(window).width()<1024){
-            //$('#mini-button').removeAttr('checked');
-            $('#mini-button').prop('checked', false);
+            //$('.mini-button').removeAttr('checked');
+            $('.mini-button').prop('checked', false);
             trigger_lsm_mini(isNoAnim);
             isMin = true;
             if(isMobileMin){
-                $('#sidebar').addClass('mini-sidebar');
+                $('.sidebar').addClass('mini-sidebar');
                 isMobileMin = false;
             }
         }
         else if((isMin && $(window).width()>=1024) || ( isMobileMin && !isMin && $(window).width()>=1024 )){
-            $('#mini-button').prop('checked', true);
+            $('.mini-button').prop('checked', true);
             trigger_lsm_mini(isNoAnim);
             isMin = false;
             if(isMobileMin){
                 isMobileMin = false;
             }
         }
-        else if($(window).width() < 767.98 && $('#sidebar').hasClass('mini-sidebar')){
-            $('#sidebar').removeClass('mini-sidebar');
+        else if($(window).width() < 767.98 && $('.sidebar').hasClass('mini-sidebar')){
+            $('.sidebar').removeClass('mini-sidebar');
             isMobileMin = true;
             isMin = false;
         }
@@ -207,7 +207,7 @@
         }
     });
     //菜单栏最小化
-    $('#mini-button').on('click',function(){
+    $('.mini-button').on('click',function(){
         trigger_lsm_mini();
 
     });
@@ -330,8 +330,8 @@
     // 搜索模块 -----------------------
     function intoSearch() {
         if(window.localStorage.getItem("searchlist")){
-            $(".hide-type-list input#"+window.localStorage.getItem("searchlist")).prop('checked', true);
-            $(".hide-type-list input#m_"+window.localStorage.getItem("searchlist")).prop('checked', true);
+            $(".hide-type-list input[data-id='"+window.localStorage.getItem("searchlist")+"']").prop('checked', true);
+            $(".hide-type-list input[data-id='m_"+window.localStorage.getItem("searchlist")+"']").prop('checked', true);
         }
         if(window.localStorage.getItem("searchlistmenu")){
             $('.s-type-list.big label').removeClass('active');
@@ -355,16 +355,17 @@
         window.localStorage.setItem("searchlistmenu", $(this).data("id"));
         var parent = $(this).parents(".s-search");
         parent.find('.search-group').removeClass("s-current");
-        parent.find('#'+$(this).attr("for")).parents(".search-group").addClass("s-current"); 
+        parent.find('input[data-id="'+$(this).attr("for")+'"]').parents(".search-group").addClass("s-current"); 
         toTarget($(this).parents(".s-type-list"),false,false);
     });
     $('.hide-type-list .search-group input').on('click', function() {
         var parent = $(this).parents(".s-search");
-        window.localStorage.setItem("searchlist", $(this).attr("id").replace("m_",""));
+        var idVal = $(this).data('id').replace("m_","");
+        window.localStorage.setItem("searchlist", idVal);
         parent.children(".super-search-fm").attr("action",$(this).val());
         parent.find(".search-key").attr("placeholder",$(this).data("placeholder"));
 
-        if($(this).attr('id')=="type-zhannei" || $(this).attr('id')=="m_type-zhannei")
+        if(idVal=="type-zhannei")
             parent.find(".search-key").attr("zhannei","true");
         else
             parent.find(".search-key").attr("zhannei","");
@@ -424,14 +425,14 @@
     });
     $(document).on("focus", ".smart-tips.search-key", function() {
         isZhannei = $(this).attr('zhannei')!=''?true:false;
-        parent = $(this).parents('#search');
+        parent = $(this).parents('.search');
         if ($(this).val() && !isZhannei) {
             getSmartTips($(this).val(),parent)
         }
     });
     $(document).on("keyup", ".smart-tips.search-key", function(e) {
         isZhannei = $(this).attr('zhannei')!=''?true:false;
-        parent = $(this).parents('#search');
+        parent = $(this).parents('.search');
         if ($(this).val()) {
             if (e.keyCode == 38 || e.keyCode == 40 || isZhannei) {
                 return
@@ -443,7 +444,7 @@
         }
     });
     $(document).on("keydown", ".smart-tips.search-key", function(e) {
-        parent = $(this).parents('#search');
+        parent = $(this).parents('.search');
         if (e.keyCode === 40) {
             listIndex === (tipsList - 1) ? listIndex = 0 : listIndex++;
             parent.find(".search-smart-tips ul li").eq(listIndex).addClass("current").siblings().removeClass("current");
@@ -502,11 +503,11 @@ function showAlert(data) {
         default: 
     } 
     var msg = data.msg;
-    if(!$('#alert_placeholder').hasClass('text-sm')){
-        $('body').append('<div id="alert_placeholder" class="text-sm" style="position: fixed;bottom: 10px;right: 10px;z-index: 1000;text-align: right;text-align: -webkit-right"></div>')
+    if(!$('.alert-placeholder').hasClass('text-sm')){
+        $('body').append('<div class="alert-placeholder text-sm" style="position: fixed;bottom: 10px;right: 10px;z-index: 1000;text-align: right;text-align: -webkit-right"></div>')
     }
     $html = $('<div class="alert-body" style="display:none;"><div class="alert alert-'+alert+' text-lg pr-4 pr-md-5" style="text-align:initial"><i class="iconfont '+ico+' icon-lg" style="vertical-align: middle;margin-right: 10px"></i><span style="vertical-align:middle">'+title+'</span><br><span class="text-md" style="margin-left:30px;vertical-align:middle">'+msg+'</span></div></div>');
-    $('#alert_placeholder').append( $html );//prepend
+    $('.alert-placeholder').append( $html );//prepend
     $html.show(200).delay(3500).hide(300, function(){ $(this).remove() }); 
 } 
 function toTarget(menu, padding = true, isMult = true) {
@@ -548,22 +549,22 @@ function scrollBar() {
             var a = $(document).height();
             var b = $(window).height();
             var result = parseInt(s / (a - b) * 100);
-            $("#bar").css("width", result + "%");
+            $(".bar").css("width", result + "%");
             if (true) {
                 if (result >= 0 && result <= 19)
-                    $("#bar").css("background", "skyblue");
+                    $(".bar").css("background", "skyblue");
                 if (result >= 20 && result <= 39)
-                    $("#bar").css("background", "#50bcb6");
+                    $(".bar").css("background", "#50bcb6");
                 if (result >= 40 && result <= 59)
-                    $("#bar").css("background", "#85c440");
+                    $(".bar").css("background", "#85c440");
                 if (result >= 60 && result <= 79)
-                    $("#bar").css("background", "#f2b63c");
+                    $(".bar").css("background", "#f2b63c");
                 if (result >= 80 && result <= 99)
-                    $("#bar").css("background", "pink");
+                    $(".bar").css("background", "pink");
                 if (result == 100)
-                    $("#bar").css("background", "purple");
+                    $(".bar").css("background", "purple");
             } else {
-                $("#bar").css("background", "orange");
+                $(".bar").css("background", "orange");
             }
         });
     }
@@ -590,7 +591,7 @@ $(document).ready(function() {
         var href = $(this).attr("href");
         var target = document.querySelector(href);
         if (target) {
-            if ($('#sidebar').hasClass('show')) $('#sidebar').removeClass('show');
+            if ($('.sidebar').hasClass('show')) $('.sidebar').removeClass('show');
             var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
             window.scrollTo({top: offset, behavior: 'smooth'});
         }
@@ -606,7 +607,7 @@ $(document).ready(function() {
         tag.style.color = tagsColor;
     });
     
-    let tags = document.querySelectorAll("#tag_cloud-2 a,.list-group-item .pull-right");
+    let tags = document.querySelectorAll(".tag-cloud-2 a,.list-group-item .pull-right");
     let colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
     tags.forEach(tag => {
         let tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];

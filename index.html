@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
@@ -29,12 +29,12 @@
   <script src="assets/js/jquery.min.js?ver=2.0406"></script>
 </head>
 <body class="io-grey-mode">
-  <div class="scrollbar" id="bar" style="width: 0%; background: skyblue;"></div>
+  <div class="scrollbar bar" style="width: 0%; background: skyblue;"></div>
   
   <div class="page-container">
 
     <!-- 侧边栏导航 -->
-    <div id="sidebar" class="sticky sidebar-nav fade">
+    <div id="sidebar" class="sticky sidebar-nav fade sidebar">
       <div class="modal-dialog h-100 sidebar-nav-inner">
         
         <div class="sidebar-logo border-bottom border-color">
@@ -185,7 +185,7 @@
     <div class="main-content flex-fill">
       
       <!-- 顶部导航栏 -->
-      <div id="header" class="page-header big sticky">
+      <div class="page-header big sticky header">
         <div class="navbar navbar-expand-md">
           <div class="container-fluid p-0">
             
@@ -197,7 +197,7 @@
             <div class="collapse navbar-collapse order-2 order-md-1">
               <div class="header-mini-btn">
                 <label>
-                  <input id="mini-button" type="checkbox" checked>
+                  <input class="mini-button" type="checkbox" checked>
                   <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
                     <path class="line--2" d="M0 50h80"></path>
@@ -212,13 +212,13 @@
             <ul class="nav navbar-menu text-xs order-1 order-md-2">
               <li class="nav-item me-3 mr-lg-0 d-none d-lg-block">
                 <div class="text-sm overflowClip_1">
-                  <script src="//v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
-                  <span id="hitokoto"></span>
+                  <script src="//v1.hitokoto.cn/?encode=js&select=.hitokoto" defer></script>
+                  <span class="hitokoto"></span>
                 </div>
               </li>
               
               <li class="nav-item d-md-none mobile-menu ms-4">
-                <a href="javascript:/" id="sidebar-switch" data-bs-toggle="modal" data-bs-target="#sidebar">
+                <a href="javascript:/" class="sidebar-switch" data-bs-toggle="modal" data-bs-target="#sidebar">
                   <i class="iconfont icon-classification icon-2x"></i>
                 </a>
               </li>
@@ -229,7 +229,7 @@
       </div>
 
     <div class="bulletin-big mx-3 mx-md-0 mb-4">
-      <div id="bulletin_box" class="bulletin-container card my-2">
+      <div class="bulletin-container card my-2 bulletin-box">
         <div class="card-body py-1 px-2 px-md-3 d-flex flex-fill text-xs text-muted">
           <div><i class="iconfont icon-bulletin" style="line-height:25px"></i></div>
           <div class="bulletin mx-1 mx-md-2">
@@ -240,12 +240,12 @@
             </ul>
           </div>
           <div class="flex-fill"></div>
-          <a title="关闭" href="javascript:;" rel="external nofollow" class="bulletin-btn-close" onclick="$('#bulletin_box').slideUp('slow');"><i class="iconfont icon-btn-close" style="line-height:25px"></i></a>
+          <a title="关闭" href="javascript:;" rel="external nofollow" class="bulletin-btn-close" onclick="$('.bulletin-box').slideUp('slow');"><i class="iconfont icon-btn-close" style="line-height:25px"></i></a>
         </div>
       </div>
     </div>
 
-    <div id="content" class="content-site customize-site">
+    <div class="content-site customize-site content">
         <div class="d-flex flex-fill ">
             <h4 class="text-gray text-lg mb-4">
                 <i class="site-tag iconfont icon-tag icon-lg me-1" id="term-2"></i>

@@ -27,7 +27,7 @@
 </head> 
 <body class="io-grey-mode">
    <div class="page-container">
-              <div id="sidebar" class="sticky sidebar-nav fade ">
+              <div id="sidebar" class="sticky sidebar-nav fade sidebar">
             <div class="modal-dialog h-100  sidebar-nav-inner">
                 <div class="sidebar-logo border-bottom border-color">
                     <!-- logo -->
@@ -151,8 +151,8 @@
                 <div class="border-top py-2 border-color">
                     <div class="flex-bottom">
                         <ul> 
-                            <li id="menu-item-379" class="menu-item menu-item-type-taxonomy menu-item-object-favorites menu-item-379 sidebar-item"><a href="/sitetrash/"><i class="fas fa-trash icon-fw icon-lg me-2"></i>  失效归档</a></li>
-<li id="menu-item-280" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-280 sidebar-item"><a href="/postsite/"><i class="fas fa-link icon-fw icon-lg me-2"></i>  投稿&#038;反馈</a></li>
+                            <li class="menu-item menu-item-type-taxonomy menu-item-object-favorites menu-item-379 sidebar-item"><a href="/sitetrash/"><i class="fas fa-trash icon-fw icon-lg me-2"></i>  失效归档</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-280 sidebar-item"><a href="/postsite/"><i class="fas fa-link icon-fw icon-lg me-2"></i>  投稿&#038;反馈</a></li>
  
                         </ul>
                     </div>
@@ -167,7 +167,7 @@
 .link-page {margin: 30px 0; }</style>
 <div class="main-content flex-fill">
     
-			<div id="header" class="page-header big sticky">
+			<div class="page-header big sticky header">
 			<div class="navbar navbar-expand-md">
                 <div class="container-fluid p-0">
 
@@ -179,7 +179,7 @@
                     <div class="collapse navbar-collapse order-2 order-md-1">
                         <div class="header-mini-btn">
                             <label>
-                                <input id="mini-button" type="checkbox" checked>
+                                <input class="mini-button" type="checkbox" checked>
                                 <svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"> 
                                     <path class="line--1" d="M0 40h62c18 0 18-20-17 5L31 55"></path>
                                     <path class="line--2" d="M0 50h80"></path>
@@ -198,22 +198,22 @@
                                                 <!-- 一言 -->
 						<li class="nav-item me-3 mr-lg-0 d-none d-lg-block">
 							<div class="text-sm overflowClip_1">
-                                <script src="//v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script> 
-                                <span id="hitokoto"></span> 
+                                <script src="//v1.hitokoto.cn/?encode=js&select=.hitokoto" defer></script> 
+                                <span class="hitokoto"></span> 
 							</div>
 						</li>
                         <!-- 一言 end -->
                                                 						<li class="nav-item d-md-none mobile-menu ms-4">
-							<a href="javascript:/" id="sidebar-switch" data-bs-toggle="modal" data-bs-target="#sidebar"><i class="iconfont icon-classification icon-2x"></i></a>
+							<a href="javascript:/" class="sidebar-switch" data-bs-toggle="modal" data-bs-target="#sidebar"><i class="iconfont icon-classification icon-2x"></i></a>
 						</li>
                     </ul>
 				</div>
             </div>
         </div>
-	<div id="content" class="container my-4 my-md-5">
+	<div class="container my-4 my-md-5 content">
 			<div class="content-area">
 				<main class="site-main">
-									<article id="post-256" class="type-post post">
+									<article class="type-post post post-256">
 					<h1 class="h2 mb-4">友情链接汇总</h1>
 						<div class="content page">
 							<div class="single-content">
@@ -363,11 +363,11 @@
 </script>
              
             <footer class="main-footer footer-type-1 text-xs">
-                <div id="footer-tools" class="d-flex flex-column footer-tools">
-                    <a href="javascript:/" id="go-to-up" class="btn rounded-circle go-up m-1" rel="go-top">
+                <div class="d-flex flex-column footer-tools">
+                    <a href="javascript:/" class="btn rounded-circle go-up m-1 go-to-up" rel="go-top">
                         <i class="iconfont icon-to-up"></i>
                     </a>
-                                                            <a href="javascript:/" id="switch-mode" class="btn rounded-circle switch-dark-mode m-1" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式">
+                                                            <a href="javascript:/" class="btn rounded-circle switch-dark-mode m-1 switch-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式">
                         <i class="mode-ico iconfont icon-light"></i>
                     </a>
                 </div>
