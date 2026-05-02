@@ -595,6 +595,8 @@ $(document).ready(function() {
                 if ($('.sidebar').hasClass('show')) $('.sidebar').removeClass('show');
                 var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
                 window.scrollTo({top: offset, behavior: 'smooth'});
+                // 更新URL中的哈希值，但不重新加载页面
+                history.pushState(null, null, href);
             }
         }
     });
