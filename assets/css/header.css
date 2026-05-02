@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/* Header Menu */
+.navbar-menu-item{position:relative;list-style:none}
+.navbar-dropdown{transform:translateY(15px)}
+.navbar-dropdown{position:absolute;min-width:160px;opacity:0;overflow:hidden;visibility:hidden;background:var(--color-bg-white);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);transition:var(--transition-normal)}
+.navbar-menu-item.focus .navbar-dropdown,.navbar-menu-item:hover .navbar-dropdown{opacity:1;z-index:1;overflow:visible;visibility:visible;transform:translateY(0)}
+.navbar-menu-item.has-children:after{content:'\e612';font-family:"iconfont";position:absolute;top:14px;right:-2px;font-size:12px;transform:rotate(0) scale(.6);transition:transform var(--transition-fast)}
+.navbar-menu-item.has-children:hover:after{transform:rotate(45deg) scale(.6)}
+.navbar-nav-item{font-size:14px;padding:var(--space-3) var(--space-4);display:block;transition:color var(--transition-fast)}
+.navbar-nav-icon{margin-right:2px!important}
+.navbar-menu{flex-direction:row;margin-left:auto;align-items:center}
+.navbar-brand-light{max-height:40px}
+.navbar-brand-dark{max-height:40px;display:none}
+.nav-github{display:none;position:absolute;top:0;right:0;border:0}
+.page-header{background:var(--color-bg-white);box-shadow:var(--shadow-sm);transition:background-color var(--transition-normal)}
+.page-header-list{margin:0;padding:0}
+.header-mini-btn{height:74px;width:40px}
+.header-mini-btn svg{margin:0 -20px;height:74px}
+.header-mini-btn input[type="checkbox"]{display:none}
+.header-mini-btn path{fill:none;stroke:#888;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;--length:24;--offset:-38;stroke-dasharray:var(--length) var(--total-length);stroke-dashoffset:var(--offset);transition:all .8s cubic-bezier(.645,.045,.355,1)}
+.header-mini-btn circle{fill:#fff3;opacity:0;transition:opacity var(--transition-fast);cursor:pointer}
+.header-mini-btn label{display:block;top:0;right:0;cursor:pointer}
+.header-mini-btn label:hover circle{opacity:1}
+.header-mini-btn input:checked+svg .line--1,.header-mini-btn input:checked+svg .line--3{--length:12.602325267}
+.header-mini-btn .line--1,.header-mini-btn .line--3{--total-length:126.38166809082031}
+.header-mini-btn .line--2{--total-length:80}
+.header-mini-btn path{transition:all .5s cubic-bezier(.645,.045,.355,1),stroke var(--transition-fast)}
+.header-mini-btn label:hover path{stroke:var(--color-primary)}
+.bulletin{box-sizing:border-box;height:25px;line-height:25px;overflow:hidden}
+.bulletin-list{margin:0;padding:0;list-style-type:none;font-size:14px}
+
+/* Header Big */
+.page-header.big{backdrop-filter:blur(10px);background:rgba(255,255,255,.7)}
+.header-big{position:relative;margin-top:-75px;padding-top:100px;padding-bottom:60px}
+.header-big.bg-gradual:before{content:'';position:absolute;left:0;height:80px;right:0;bottom:0;background-image:linear-gradient(to top,var(--color-bg) 0,transparent 80%);transition:var(--transition-normal)}
+.header-big.css-img,.header-big.css-bing,.header-big.canvas-fx{background-color:var(--color-bg-darker)}
+.header-big.css-img,.header-big.css-bing{background-size:cover;background-position:cover}
+.post-top{padding-bottom:120px}
+.header-big.css-color{background-size:400%;background-position:0 100%;animation:gradient 7.5s ease-in-out infinite}
+@keyframes gradient{50%{background-position:100% 0}}
+.header-big .bulletin-container{background:transparent;box-shadow:none}
+.header-big .bulletin-container-link{color:var(--color-bg-white)}
+.header-big .bulletin-big .bulletin-container{max-width:600px;margin:0 auto}
+.header-big:not(.no-bg) .bulletin-container .card-body{color:var(--color-bg-white)!important;background:rgba(0,0,0,.3);border-radius:var(--radius-pill)}
+.header-big .bulletin-close{opacity:.1;transition:opacity var(--transition-normal)}
+.header-big .bulletin-big .bulletin-container:hover .bulletin-close{opacity:.7}
+.header-big:not(.no-bg) .text-muted{color:var(--color-bg-white)!important}
+.content-site.customize-site.big{margin-top:-80px}
+@media screen and (min-width:768px){.header-big{padding-top:170px;padding-bottom:110px}.post-top{padding-bottom:180px}}
