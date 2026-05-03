@@ -88,9 +88,9 @@
     //返回顶部
     $(window).scroll(function () {
         if ($(this).scrollTop() >= 50) {
-            $('.go-to-up').fadeIn(200);
+            $('.go-up').fadeIn(200);
         } else {
-            $('.go-to-up').fadeOut(200);
+            $('.go-up').fadeOut(200);
         }
     });
     $('.go-up').click(function () {
@@ -101,16 +101,10 @@
  
     //滑块菜单
     $('.slider_menu').children("ul").children("li").not(".anchor").hover(function() {
-        $(this).addClass("hover"),
-        //$('li.anchor').css({
-        //    transform: "scale(1.05)",
-        //}),
-        toTarget($(this).parent()) 
+        $(this).addClass("hover");
+        toTarget($(this).parent());
     }, function() {
-        //$('li.anchor').css({
-        //    transform: "scale(1)",
-        //}),
-        $(this).removeClass("hover") 
+        $(this).removeClass("hover");
     });
     $('.slider_menu').mouseleave(function(e) {
         var menu = $(this).children("ul");
@@ -164,7 +158,6 @@
         isMobileMin = false;
     function trigger_resizable( isNoAnim=false ) {
         if(!isMin && 767.98<$(window).width() && $(window).width()<1024){
-            //$('.mini-button').removeAttr('checked');
             $('.mini-button').prop('checked', false);
             trigger_lsm_mini(isNoAnim);
             isMin = true;
@@ -188,20 +181,14 @@
         }
     }
     // sidebar-menu-inner收缩展开
-    $('.sidebar-menu-inner a').on('click',function(){//.sidebar-menu-inner a //.has-sub a  
-
-        //console.log('--->>>'+$(this).find('span').text());
-        if (!$('.sidebar-nav').hasClass('mini-sidebar')) {//菜单栏没有最小化   
+    $('.sidebar-menu-inner a').on('click',function(){
+        if (!$('.sidebar-nav').hasClass('mini-sidebar')) {
             $(this).parent("li").siblings("li.sidebar-item").children('ul').slideUp(200);
-            if ($(this).next().css('display') == "none") { //展开
-                //展开未展开
-                // $('.sidebar-item').children('ul').slideUp(300);
+            if ($(this).next().css('display') == "none") {
                 $(this).next('ul').slideDown(200);
                 $(this).parent('li').addClass('sidebar-show').siblings('li').removeClass('sidebar-show');
-            }else{ //收缩
-                //收缩已展开
+            }else{
                 $(this).next('ul').slideUp(200);
-                //$('.sidebar-item.sidebar-show').removeClass('sidebar-show');
                 $(this).parent('li').removeClass('sidebar-show');
             }
         }
@@ -228,7 +215,6 @@
             else
             $('.sidebar-nav').stop().animate({width : 60},200);
         }
-        //$('.sidebar-nav').css("transition","width .3s");
     }
     //显示2级悬浮菜单
     $(document).on('mouseover','.mini-sidebar .sidebar-menu ul:first>li,.mini-sidebar .flex-bottom ul:first>li',function(){
@@ -349,7 +335,6 @@
         }
     }
     $(document).on('click', '.s-type-list label', function(event) {
-        //event.preventDefault();
         $('.s-type-list.big label').removeClass('active');
         $(this).addClass('active');
         window.localStorage.setItem("searchlistmenu", $(this).data("id"));
@@ -507,7 +492,7 @@ function showAlert(data) {
         $('body').append('<div class="alert-placeholder text-sm" style="position: fixed;bottom: 10px;right: 10px;z-index: 1000;text-align: right;text-align: -webkit-right"></div>')
     }
     $html = $('<div class="alert-body" style="display:none;"><div class="alert alert-'+alert+' text-lg pr-4 pr-md-5" style="text-align:initial"><i class="iconfont '+ico+' icon-lg" style="vertical-align: middle;margin-right: 10px"></i><span style="vertical-align:middle">'+title+'</span><br><span class="text-md" style="margin-left:30px;vertical-align:middle">'+msg+'</span></div></div>');
-    $('.alert-placeholder').append( $html );//prepend
+    $('.alert-placeholder').append( $html );
     $html.show(200).delay(3500).hide(300, function(){ $(this).remove() }); 
 } 
 function toTarget(menu, padding = true, isMult = true) {
@@ -541,35 +526,6 @@ function toTarget(menu, padding = true, isMult = true) {
         })
     }
 }
-//滚动进度条函数
-function scrollBar() {
-    if (document.body.clientWidth > 860) {
-        $(window).scroll(function () {
-            var s = $(window).scrollTop();
-            var a = $(document).height();
-            var b = $(window).height();
-            var result = parseInt(s / (a - b) * 100);
-            $(".bar").css("width", result + "%");
-            if (true) {
-                if (result >= 0 && result <= 19)
-                    $(".bar").css("background", "skyblue");
-                if (result >= 20 && result <= 39)
-                    $(".bar").css("background", "#50bcb6");
-                if (result >= 40 && result <= 59)
-                    $(".bar").css("background", "#85c440");
-                if (result >= 60 && result <= 79)
-                    $(".bar").css("background", "#f2b63c");
-                if (result >= 80 && result <= 99)
-                    $(".bar").css("background", "pink");
-                if (result == 100)
-                    $(".bar").css("background", "purple");
-            } else {
-                $(".bar").css("background", "orange");
-            }
-        });
-    }
-}
-scrollBar();
 
 // Bootstrap 5 Tooltip 初始化函数
 function initTooltips(selector) {
@@ -580,41 +536,3 @@ function initTooltips(selector) {
     });
 }
 
-// 平滑滚动功能
-$(document).ready(function() {
-    setTimeout(function() {
-        $('a.sidebar-menu-link[href="' + window.location.hash + '"]').click();
-    }, 300);
-
-    $(document).on('click', 'a.sidebar-menu-link', function(ev) {
-        var href = $(this).attr("href");
-        if (href && href.startsWith('#term-')) { // 只处理锚点链接
-            ev.preventDefault();
-            var target = document.querySelector(href);
-            if (target) {
-                if ($('.sidebar').hasClass('show')) $('.sidebar').removeClass('show');
-                var offset = target.getBoundingClientRect().top + window.pageYOffset - 90;
-                window.scrollTo({top: offset, behavior: 'smooth'});
-                // 更新URL中的哈希值，但不重新加载页面
-                history.pushState(null, null, href);
-            }
-        }
-    });
-});
-
-// 随机颜色功能
-$(document).ready(function() {
-    let leftHeader = document.querySelectorAll("span.nav-icon>svg,span.nav-icon>i");
-    let leftHeaderColorArr = ["#FF69B4", "#58c7ea", "#E066FF", "#FF69B4", "#FFA54F", "#90EE90"];
-    leftHeader.forEach(tag => {
-        let tagsColor = leftHeaderColorArr[Math.floor(Math.random() * leftHeaderColorArr.length)];
-        tag.style.color = tagsColor;
-    });
-    
-    let tags = document.querySelectorAll(".tag-cloud-2 a,.list-group-item .pull-right");
-    let colorArr = ["#428BCA", "#AEDCAE", "#ECA9A7", "#DA99FF", "#FFB380", "#D9B999"];
-    tags.forEach(tag => {
-        let tagsColor = colorArr[Math.floor(Math.random() * colorArr.length)];
-        tag.style.backgroundColor = tagsColor;
-    });
-});
