@@ -613,3 +613,7 @@ html, body { scrollbar-width: thin; scrollbar-color: var(--color-scrollbar) var(
   --shadow-sm: 0 2px 12px rgba(0,0,0,.2);
   --shadow-md: 0 8px 24px rgba(0,0,0,.3);
 }
+
+[id^="term-"] {
+  scroll-margin-top: 90px;
+}
