@@ -11,13 +11,13 @@
 
 /* Sidebar */
 .io-grey-mode .sidebar-logo {
-  background: var(--color-bg-white);
+  background: var(--bg-white);
 }
 .io-grey-mode .page-header {
   box-shadow: none;
 }
 .io-grey-mode .sidebar-nav-inner {
-  background: var(--color-bg);
+  background: var(--bg);
 }
 .io-grey-mode .border-color {
   border-color: transparent !important;
@@ -31,7 +31,7 @@
 }
 .io-grey-mode .sidebar-show,
 .io-grey-mode .sidebar-item-link:hover {
-  color: var(--color-primary);
+  color: var(--primary);
   background: none;
 }
 .io-grey-mode .sidebar-popup-inner {
@@ -42,11 +42,11 @@
 }
 .io-grey-mode .sidebar-nav,
 .io-grey-mode .sidebar-popup-item {
-  background: var(--color-bg-gray);
+  background: var(--bg-gray);
 }
 .io-grey-mode .sidebar-item-link:hover,
 .io-grey-mode .sidebar-popup-link:hover {
-  color: var(--color-primary);
+  color: var(--primary);
   background: none;
 }
 
@@ -56,13 +56,13 @@
 
 /* Base Elements */
 .io-black-mode {
-  background-color: var(--color-bg-darker);
+  background-color: var(--bg-darker);
 }
 .io-black-mode .btn-move {
   color: #989da1 !important;
 }
 .io-black-mode .bg-light {
-  background: var(--color-bg-darkgray) !important;
+  background: var(--bg-darkgray) !important;
 }
 .io-black-mode .text-gray {
   color: #888;
@@ -70,7 +70,7 @@
 .io-black-mode .modal-content,
 .io-black-mode .flex-avatar,
 .io-black-mode .card {
-  background-color: var(--color-bg-dark);
+  background-color: var(--bg-dark);
 }
 .io-black-mode .url-body:hover {
   box-shadow: var(--shadow-md);
@@ -78,14 +78,14 @@
 
 /* Header & Sidebar */
 .io-black-mode .page-header {
-  background: var(--color-bg-dark);
+  background: var(--bg-dark);
   box-shadow: var(--shadow-md);
 }
 .io-black-mode .border-color {
   border-color: transparent !important;
 }
 .io-black-mode .sidebar-nav-inner {
-  background: var(--color-bg-dark);
+  background: var(--bg-dark);
 }
 .io-black-mode .flex-bottom-link,
 .io-black-mode .sidebar-menu-link {
@@ -96,32 +96,32 @@
 }
 .io-black-mode .sidebar-show,
 .io-black-mode .sidebar-item-link:hover {
-  color: var(--color-primary);
+  color: var(--primary);
   background: none;
 }
 .io-black-mode .sidebar-popup-inner {
-  background: var(--color-bg-darkest);
+  background: var(--bg-darkest);
 }
 .io-black-mode .sidebar-popup::before {
-  border-color: transparent var(--color-bg-darkest) transparent;
+  border-color: transparent var(--bg-darkest) transparent;
 }
 .io-black-mode .sidebar-nav,
 .io-black-mode .sidebar-popup-item {
-  background: var(--color-bg-dark);
+  background: var(--bg-dark);
 }
 .io-black-mode .sidebar-item-link:hover,
 .io-black-mode .sidebar-popup-link:hover {
-  color: var(--color-primary);
+  color: var(--primary);
   background: none;
 }
 
 /* Footer */
 .io-black-mode .footer-tools .btn {
   color: #aaa;
-  background: var(--color-bg-darkgray);
+  background: var(--bg-darkgray);
 }
 .io-black-mode .footer-tools .btn:hover {
-  color: var(--color-bg-white);
+  color: var(--bg-white);
 }
 .io-black-mode .switch-dark-mode .mode-ico {
   color: #aaa;

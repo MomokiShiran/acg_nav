@@ -68,6 +68,20 @@ function generateSiteDetailPage(site) {
     const relatedSites = (site.relatedIds || [])
         .map(id => data.sites.find(s => s.id === id))
         .filter(Boolean);
+    
+    const getHostname = (url) => {
+        try {
+            if (url && url.startsWith('http')) {
+                return new URL(url).hostname;
+            }
+            return '';
+        } catch {
+            return '';
+        }
+    };
+
+    const hostname = getHostname(site.url);
+    const ogImage = hostname ? `https://favicon.im/${hostname}` : '../assets/images/favicon.png';
 
     return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -83,7 +97,7 @@ function generateSiteDetailPage(site) {
 <meta property="og:url" content="sites/${site.id}.html">
 <meta property="og:title" content="${site.name} | MyACGN">
 <meta property="og:description" content="${site.detail || site.description}">
-<meta property="og:image" content="https://favicon.im/${new URL(site.url).hostname}">
+<meta property="og:image" content="${ogImage}">
 <meta property="og:site_name" content="MyACGN">
 <link rel="shortcut icon" href="../assets/images/favicon.png">
 <link rel="apple-touch-icon" href="../assets/images/favicon.png">
@@ -251,8 +265,8 @@ function generateSiteDetailPage(site) {
             <div class="row site-content py-4 py-md-5 mb-xl-5 mb-0">
                 <div class="col-12 col-sm-5 col-md-4 col-lg-3">
                     <div class="siteico">
-                        <div class="blur blur-layer" style="background: transparent url(https://favicon.im/${new URL(site.url).hostname}) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;animation: rotate 30s linear infinite;"></div>
-                        <img class="img-cover" src="https://favicon.im/${new URL(site.url).hostname}" alt="${site.name}" title="${site.name}">
+                        <div class="blur blur-layer" style="background: transparent url(${hostname ? `https://favicon.im/${hostname}` : '../assets/images/favicon.png'}) no-repeat center center;-webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;animation: rotate 30s linear infinite;"></div>
+                        <img class="img-cover" src="${hostname ? `https://favicon.im/${hostname}` : '../assets/images/favicon.png'}" alt="${site.name}" title="${site.name}">
                     </div>
                 </div>
                 <div class="col mt-4 mt-sm-0">
@@ -281,7 +295,7 @@ function generateSiteDetailPage(site) {
         </div>
         <footer class="main-footer footer-type-1 text-xs">
             <div class="footer-tools d-flex flex-column">
-                <a href="javascript:/" class="btn rounded-circle go-up m-1 go-to-up" rel="go-top"><i class="iconfont icon-to-up"></i></a>
+                <a href="javascript:/" class="btn rounded-circle go-up m-1" rel="go-top"><i class="iconfont icon-to-up"></i></a>
                 <a href="javascript:/" class="btn rounded-circle switch-dark-mode m-1 switch-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式"><i class="mode-ico iconfont icon-light"></i></a>
             </div>
             <div class="footer-inner" style="text-align: center;">
@@ -318,7 +332,7 @@ function generateTrashPage() {
         return `
                         <div class="url-card col-6 col-sm-4 col-md-3 col-lg-2">
                             <div class="url-body default">
-                                <a href="${site.url}" target="_blank" data-id="${site.id}" class="card no-c mb-4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${site.description}">
+                                <a href="../sites/${site.id}.html" target="_blank" data-id="${site.id}" class="card no-c mb-4" data-bs-toggle="tooltip" data-bs-placement="bottom" title="${site.description}">
                                     <div class="card-body">
                                         <div class="url-content d-flex align-items-center">
                                             <div class="url-img rounded-circle me-2 d-flex align-items-center justify-content-center">
@@ -356,7 +370,6 @@ function generateTrashPage() {
 <script src="../assets/js/jquery.min.js?ver=2.0406"></script>
 </head>
 <body class="io-grey-mode">
-<div class="scrollbar bar" style="width: 0%; background: skyblue;"></div>
 <div class="page-container">
     <div id="sidebar" class="sticky sidebar-nav fade sidebar">
         <div class="modal-dialog h-100 sidebar-nav-inner">
@@ -520,7 +533,7 @@ ${siteCards}
         </div>
         <footer class="main-footer footer-type-1 text-xs">
             <div class="footer-tools d-flex flex-column">
-                <a href="javascript:/" class="btn rounded-circle go-up m-1 go-to-up" rel="go-top"><i class="iconfont icon-to-up"></i></a>
+                <a href="javascript:/" class="btn rounded-circle go-up m-1" rel="go-top"><i class="iconfont icon-to-up"></i></a>
                 <a href="javascript:/" class="btn rounded-circle switch-dark-mode m-1 switch-mode" data-bs-toggle="tooltip" data-bs-placement="left" title="夜间模式"><i class="mode-ico iconfont icon-light"></i></a>
             </div>
             <div class="footer-inner" style="text-align: center;">
@@ -565,6 +578,14 @@ function generateAll() {
         const filePath = path.join(OUTPUT_DIR, `${site.id}.html`);
         fs.writeFileSync(filePath, html);
         console.log(`Generated: sites/${site.id}.html - ${site.name}`);
+        generatedCount++;
+    }
+
+    for (const site of (data.trashSites || [])) {
+        const html = generateSiteDetailPage(site);
+        const filePath = path.join(OUTPUT_DIR, `${site.id}.html`);
+        fs.writeFileSync(filePath, html);
+        console.log(`Generated: sites/${site.id}.html - ${site.name} (trash)`);
         generatedCount++;
     }
 

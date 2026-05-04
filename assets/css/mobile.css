@@ -1,19 +1,88 @@
 @charset "utf-8";
 
 /* Mobile Menu */
-.mobile-menu-link{color:#777}
-@media (min-width:768px){.navbar{padding:0 1rem}.sidebar-nav{display:block!important}}
-@media (max-width:767.98px){
-.nav-github{display:none}
-.sidebar-nav{background:transparent!important;width:100%!important;height:100%!important;top:0!important;position:fixed;z-index:1090!important;display:none;padding-left:0!important}
-.sidebar-nav.show>div{transform:translate3d(0,0,0)}
-.sidebar-nav>*{position:fixed;height:100%;transition:var(--transition-fast);transform:translate3d(-100%,0,0);width:17.5rem}
-.row,.row-lg,.row-md,.row-sm,.row-xs{margin-right:0;margin-left:0}
-.row > [class*="col-"],.row-lg > [class*="col-"],.row-md > [class*="col-"],.row-sm > [class*="col-"],.row-xs > [class*="col-"]{padding-right:var(--space-2);padding-left:var(--space-2)}
-.container,.container-lg{padding-right:var(--space-4);padding-left:var(--space-4)}
-.card,.block{overflow-x:hidden}
-.url-card .card-body{overflow-x:hidden}
-.header-big{padding-left:var(--space-4);padding-right:var(--space-4)}
-.page-header{padding-left:var(--space-3);padding-right:var(--space-3)}
-input,textarea,select,button{max-width:100%}
+.mobile-menu-link {
+  color: #777;
+}
+
+@media (min-width:768px) {
+  .navbar {
+    padding: 0 1rem;
+  }
+  .sidebar-nav {
+    display: block !important;
+  }
+}
+
+@media (max-width:767.98px) {
+  .nav-github {
+    display: none;
+  }
+
+  .sidebar-nav {
+    background: transparent !important;
+    width: 100% !important;
+    height: 100% !important;
+    top: 0 !important;
+    position: fixed;
+    z-index: 1090 !important;
+    display: none;
+    padding-left: 0 !important;
+  }
+  .sidebar-nav.show>div {
+    transform: translate3d(0,0,0);
+  }
+  .sidebar-nav>* {
+    position: fixed;
+    height: 100%;
+    transition: var(--transition-fast);
+    transform: translate3d(-100%,0,0);
+    width: 17.5rem;
+  }
+
+  .row,
+  .row-lg,
+  .row-md,
+  .row-sm,
+  .row-xs {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  .row > [class*="col-"],
+  .row-lg > [class*="col-"],
+  .row-md > [class*="col-"],
+  .row-sm > [class*="col-"],
+  .row-xs > [class*="col-"] {
+    padding-right: var(--space-2);
+    padding-left: var(--space-2);
+  }
+  .container,
+  .container-lg {
+    padding-right: var(--space-4);
+    padding-left: var(--space-4);
+  }
+
+  .card,
+  .block {
+    overflow-x: hidden;
+  }
+  .url-card .card-body {
+    overflow-x: hidden;
+  }
+
+  .header-big {
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
+  .page-header {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  input,
+  textarea,
+  select,
+  button {
+    max-width: 100%;
+  }
 }
