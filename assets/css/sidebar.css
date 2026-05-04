@@ -34,15 +34,13 @@
   justify-content: center;
   flex-shrink: 0;
 }
-.sidebar-logo-light {
+.sidebar-logo-light,
+.sidebar-logo-dark {
   max-height: 40px;
   width: auto;
   object-fit: contain;
 }
 .sidebar-logo-dark {
-  max-height: 40px;
-  width: auto;
-  object-fit: contain;
   display: none;
 }
 .logo {
