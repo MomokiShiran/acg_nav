@@ -57,33 +57,7 @@ th, td {
   display: block;
   padding-top: 100%;
 }
-.tool-actions {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: .625rem 0;
-}
-.tool-actions .btn-light {
-  color: #424446 !important;
-  backdrop-filter: blur(5px);
-  background-color: rgba(250, 250, 250, .5) !important;
-  border-color: transparent !important;
-}
-.tool-actions .btn-light:hover {
-  background-color: rgba(250, 250, 250, .8) !important;
-}
-.customize-menu .btn-edit {
-  color: #ddd;
-  line-height: 24px;
-  background: var(--primary);
-  padding: 0 10px;
-  margin: 5px 0;
-  border-radius: var(--radius-pill);
-}
-.customize-menu .btn-edit:hover {
-  color: var(--bg-white);
-}
+
 .blur {
   filter: blur(15px);
 }

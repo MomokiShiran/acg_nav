@@ -11,8 +11,6 @@
 }
 .navbar-dropdown {
   transform: translateY(15px);
-}
-.navbar-dropdown {
   position: absolute;
   min-width: 160px;
   opacity: 0;
