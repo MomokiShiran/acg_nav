@@ -93,21 +93,12 @@
   ],
   "sites": [
     {
-      "id": 440,
-      "name": "Kemono",
-      "url": "https://kemono.party",
-      "description": "收录了大量画师的赞助内容，例如fanbox，patron、fantia",
+      "id": 442,
+      "name": "Wallhaven",
+      "url": "https://wallhaven.cc",
+      "description": "壁纸站，需登录查看全部内容，图片较多",
       "category": "term-2",
       "isNew": true
-    },
-    {
-      "id": 402,
-      "name": "LSP壁纸",
-      "url": "https://www.lspbz.com",
-      "description": "LSP的动漫游戏二次元原画壁纸图片库",
-      "category": "term-2",
-      "isNew": true,
-      "detail": "LSP壁纸，专注分享二次元、动漫、游戏、人物、主题等画师原画插画壁纸图集，二次元美图，动漫游戏壁纸，人物主题原画，手机电脑壁纸"
     },
     {
       "id": 270,
@@ -2147,11 +2138,21 @@
       "id": 1021
     },
     {
-      "id": 442,
-      "name": "Wallhaven",
-      "url": "https://wallhaven.cc",
-      "description": "壁纸站，需登录查看全部内容，图片较多",
-      "category": "term-2"
+      "id": 440,
+      "name": "Kemono",
+      "url": "https://kemono.party",
+      "description": "收录了大量画师的赞助内容，例如fanbox，patron、fantia",
+      "category": "term-2",
+      "isNew": true
+    },
+    {
+      "id": 402,
+      "name": "LSP壁纸",
+      "url": "https://www.lspbz.com",
+      "description": "LSP的动漫游戏二次元原画壁纸图片库",
+      "category": "term-2",
+      "isNew": true,
+      "detail": "专注分享二次元、动漫、游戏、人物、主题等画师原画插画壁纸图集，二次元美图，动漫游戏壁纸，人物主题原画，手机电脑壁纸"
     }
   ]
 }
