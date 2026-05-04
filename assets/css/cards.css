@@ -15,7 +15,7 @@
 }
 .url-card .url-goto-after {
   height: 24px;
-  border-top: 1px solid var(--color-border-light);
+  border-top: 1px solid var(--border-light);
 }
 .url-card .url-goto {
   position: absolute;
@@ -118,8 +118,8 @@
   transition: var(--transition-normal);
 }
 .url-card .max .tga a:not(.no-tag):hover {
-  background: var(--color-primary);
-  color: var(--color-bg-white);
+  background: var(--primary);
+  color: var(--bg-white);
 }
 .url-card-goto:hover .url-card-goto-icon {
   text-shadow: 0 0 5px;
@@ -132,7 +132,7 @@
   top: -8px;
   right: 0;
   font-size: 20px;
-  color: var(--color-primary);
+  color: var(--primary);
   line-height: 20px;
 }
 .url-card .mini .card-body {

@@ -18,7 +18,7 @@
   width: inherit;
   margin: 0;
   max-width: 260px;
-  background: var(--color-bg-dark);
+  background: var(--bg-dark);
   pointer-events: inherit;
   display: flex;
   flex-direction: column;
@@ -63,7 +63,7 @@
 .sidebar-menu-link {
   display: block;
   overflow: hidden;
-  padding-left: var(--space-xl);
+  padding-left: var(--space-3);
   line-height: 50px;
   max-height: 50px;
   color: #b2b8be;
@@ -99,7 +99,7 @@
   transform: scale(.8) rotate(90deg);
 }
 .sidebar-show, .sidebar-item>a:hover {
-  color: var(--color-bg-white);
+  color: var(--bg-white);
   background: rgba(0, 0, 0, .2);
 }
 .sidebar-nav-inner .flex-fill {
@@ -143,7 +143,7 @@
   border: 3px solid rgba(60, 71, 76, 0);
 }
 .sidebar-popup-content {
-  background: var(--color-bg-darkest);
+  background: var(--bg-darkest);
   border-radius: var(--radius-xl);
 }
 .sidebar-popup.second {
@@ -176,7 +176,7 @@
   content: '';
   border-width: 5px 5px 5px 0;
   border-style: solid;
-  border-color: transparent var(--color-bg-darkest) transparent;
+  border-color: transparent var(--bg-darkest) transparent;
   position: absolute;
   top: 14px;
   left: -4px;
@@ -186,7 +186,7 @@
   padding: 0;
 }
 .sidebar-nav, .sidebar-popup .sidebar-menu-item {
-  background: var(--color-bg-dark);
+  background: var(--bg-dark);
   list-style: none;
 }
 
@@ -203,7 +203,7 @@
 }
 .sidebar-card-header:after {
   content: '';
-  background-color: var(--color-primary);
+  background-color: var(--primary);
   left: 1.25rem;
   width: 50px;
   height: 2px;
@@ -222,15 +222,15 @@
   border-radius: var(--radius-xl);
 }
 .sidebar-url-card {
-  background: var(--color-bg-light);
+  background: var(--bg-light);
   box-shadow: unset;
-  border: 1px solid var(--color-bg-light);
+  border: 1px solid var(--bg-light);
   transition: var(--transition-normal);
 }
 .sidebar-url-card:hover {
   transform: unset;
   box-shadow: unset;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--primary);
 }
 .sidebar-url-card-special:after {
   font-size: 27px;

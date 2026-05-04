@@ -20,7 +20,7 @@
   padding: 5px;
 }
 .slider-menu-anchor {
-  background: var(--color-primary);
+  background: var(--primary);
   border-radius: var(--radius-pill);
   width: 60px;
   height: 40px;
@@ -48,7 +48,7 @@
 }
 .slider-menu-link:hover,
 .slider-menu-link.active {
-  color: var(--color-bg-white);
+  color: var(--bg-white);
 }
 .slider-menu-list:hover .slider-menu-item:not(.hover) .slider-menu-link.active {
   color: #888;
@@ -113,7 +113,7 @@ blockquote {
   position: relative;
   padding: .9375rem 0 .9375rem 1.75rem;
   margin: 1.5rem 0;
-  border-left: 5px solid var(--color-border-light);
+  border-left: 5px solid var(--border-light);
   background-color: rgba(136, 136, 136, .1);
 }
 blockquote p:last-of-type {
@@ -173,13 +173,13 @@ th, td {
 .customize-menu .btn-edit {
   color: #ddd;
   line-height: 24px;
-  background: var(--color-primary);
+  background: var(--primary);
   padding: 0 10px;
   margin: 5px 0;
   border-radius: var(--radius-pill);
 }
 .customize-menu .btn-edit:hover {
-  color: var(--color-bg-white);
+  color: var(--bg-white);
 }
 .blur {
   filter: blur(15px);
@@ -213,7 +213,7 @@ th, td {
   transition: var(--transition-normal);
 }
 .site-body .btn:hover {
-  color: var(--color-bg-white);
+  color: var(--bg-white);
   background: #202224;
 }
 .site-body .btn:active {
